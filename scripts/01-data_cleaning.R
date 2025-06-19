@@ -1,8 +1,6 @@
 #### Preamble ####
 # Purpose: Prepare the data
-# Author: Rohan Alexander
 # Date: 12 August 2024
-# Contact: rohan.alexander@utoronto.ca
 
 
 #### Workspace setup ####

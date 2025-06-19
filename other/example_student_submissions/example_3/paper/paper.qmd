@@ -1,0 +1,654 @@
+---
+title: "Characteristics of Top Songs Has Changed from Pandemic Brain"
+subtitle: "An analysis of songs on Billboard's Year-End Hot 100 singles list (2014 to 2023)"
+author: 
+thanks: "Code and data are available at: ."
+date: today
+date-format: long
+abstract: "Music often reflects the current climate of society and there is a growing interest in how hit songs as seen on Billboard's Year-End Hot 100 singles has changed after the COVID-19 pandemic. This paper looks at music characteristics such as tempo, song duration, loudness, and modality of songs from Billboard's Year-End Hot 100 singles list from 2014 to 2023 to reveal patterns and relationships to explain the difference between top songs before 2020 and 2020 onwards. The results show that hit songs from 2020 onwards had become on average quieter but slightly faster with our model revealing that duration does not impact the likelihood of a song being a hit prior to 2020 but songs in a minor key were more likely to be a hit before 2020. These results can support the evaluation of the emotional state of different populations and improve treatments such as music therapy, however further investigation is needed on the influence of lyrics on different music characteristics."
+format:
+  pdf:
+    toc: true
+number-sections: true
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+library(tidyverse)
+library(arrow)
+library(ggcorrplot)
+library(ggplot2)
+library(knitr)
+library(modelsummary)
+library(rstanarm)
+
+# Packages related to causal model created
+library(DiagrammeR)
+library(rsvg)
+library(magrittr)
+library(DiagrammeRsvg)
+library(png)
+
+# Read in data
+playlist_analysis_data <- read_parquet("../data/analysis_data/playlists_analysis_data.parquet")
+
+hit_song_model_results <- readRDS("../models/hit_song_model.rds")
+```
+
+
+# Introduction
+
+During the COVID-19 pandemic, viral songs on social media sites such as TikTok were met with thousands of listens on streaming platforms such as Spotify and at times go onto being on lists like the Billboard Year-End Hot 100. These songs often accompany thousands of short clips of people talking about their lives, challenges, etc. Ghaffari et al in their study, "The impact of COVID-19 on online music listening behaviours in light of listeners’ social interactions" noted that other studies have found that people used music to cope and regulate their thoughts and emotions during the pandemic and the lockdowns that came with it [@citecoping]. We can see this translated through the short-form videos where users don't talk and instead have the song play out to convey how they are feeling or thinking. Ghaffari et al's findings are similar to how music therapy works. As defined by the Canadian Association of Music Therapists, music therapy is the use of music to support an individual's health, social development, and well-being and some of the techniques used include listening to music [@citemusictherapy]. Hurwitz and Krumhansl conducted a study into how people's listening habits throughout the pandemic and they found that the songs they listened to often were linked to an emotion such as sadness and/or invoking memories from the past [@citeshiftingniches]. However, this raises the following question, which we explored in our analysis: how are top songs prior to 2020 or the start of the pandemic different from the top songs during and after 2020? In our analysis, we defined hit songs before 2020 to be hit songs before the pandemic and hit songs during 2020 and afterwards to be hit songs during and after the pandemic.
+
+In this paper, to investigate patterns and trends in music, we analyzed data from the Billboard Year-End Hot 100 singles list from 2014 to 2023 on music characteristics such as its modality (major or minor key), track duration, loudness, and tempo. Our estimand is the song characteristics from the Billboard Year-End Hot 100 singles such as its modality (major or minor), track duration, loudness, and tempo if a song was created before 2020 or during and after 2020. The list allowed us to gauge how preference in music characteristics has changed overall during and after the pandemic. Current studies give us a sense of how currently people are feeling based on surveys done. However, there is currently a lack of understanding and focus on the difference in musical characteristics of popular songs with the general population before the pandemic and during and after it. In our findings, our data showed that songs in a major key made up the majority of top songs before, during, and after 2020 and top songs were on average quieter, shorter, and had slightly faster tempos during and after 2020. Our model revealed that top songs before 2020 are more likely to be louder, and slower, and if it is in a minor key, it is more likely to be a hit song before 2020. However, duration did not impact the likelihood in our model. Music can reflect the climate of society and understanding trends in music characteristics of hit songs can help provide insight into the overall feelings of different populations during and after the pandemic as well as before it. This can aid in improving treatments such as music therapy.
+
+In the rest of this paper, the data section (@sec-data) will cover the dataset used, how it was obtained, define the variables of interest that are used by our tables and graphs, and briefly explain the data cleaning process. The model section (@sec-model) will explain our proposed causal model, which would explain potential relationships in our data, the setup of our model to understand these relationships, and justification for our model. In the results section (@sec-results), we will reveal tables and graphs made on our datasets, explain what they show, and show our results from our model. In the discussion section (@sec-discussion), we will explain what we did, connect back to the real world and explain what the results could mean, the implications of our results, potential areas of improvement for the paper, and suggestions for future works. Finally, the appendix section (@sec-appendix) will contain extra tables and graphs from our results, additional information about the model, a link to a Shiny application featuring interactive graphs of some of the results, and other information.
+
+# Data {#sec-data}
+
+## Methodology
+The dataset used in this paper was retrieved, simulated, cleaned, analyzed, and tested using the R programming language [@citeR], tidyverse [@citetidyverse], knitr [@citeknitr], janitor [@citejanitor], dplyr [@citedplyr], ggplot2 [@citeggplot2], spotifyr [@citespotifyr], usethis [@citeusethis], arrow [@citearrow], ggcorrplot [@citeggcorrplot], and testthat [@citetestthat]. The packages that were used for the model-related sections or used for the model itself are DiagrammeR [@citeDiagrammeR], rsvg [@citersvg], magrittr [@citemagrittr], DiagrammeRsvg [@citeDiagrammeRsvg], png [@citepng], rstanarm [@citerstanarm], and modelsummary [@citemodelsummary].
+
+## Data Source and Measurements
+The data used for the model and analysis comes from the ```playlists_analysis_data``` dataset. This dataset was constructed by using an R wrapper for Spotify's API called spotifyr [@citespotifyr] to scrape playlists complied by Spotify users antoniomendoza and wickeddreamer96 of songs from the Billboard Year-End Hot 100 singles from 2014 to 2023 [@citebillboard]. User antoniomendoza created playlists for the years 2018 to 2023, inclusive, while user wickeddreamer96 created playlists for the years 2014 to 2017, inclusive. The latest version of the data used was scraped on Tuesday, March 26, 2024, at 9:46 pm EDT. The Billboard Year-End Hot 100 singles list for the year 2014 onward was created based on data from Nielsen SoundScan [@citenielsen]. Nielsen SoundScan collects data weekly from 39,000 retail outlets, venues, etc. in 19 countries such as Canada and the United States on in-store sales and digital sales [@citenielsen]. They also track how often songs are streamed online and played on the radio [@citenielsen]. The list comprises of songs they collected data on starting from December of the previous year to the end of November of the current year, which is when Billboard releases the Year-End Hot 100 list [@citebillboardcalculations].
+
+Initially, we had scraped playlists created by Spotify that they have compiled of the top songs on the app. However, we had an insufficient number of observations from these playlists for our dataset. The playlists we previously were using only had around 50 songs each and there were years where Spotify had not created a top song playlist for such as 2021 and 2022.
+
+Each observation in the dataset belongs to a song from the Spotify playlist that we scraped compiled by antoniomendoza and wickeddreamer96 for songs on the Billboard Year-End Hot 100 singles. For the duplicate songs that showed up in different years, they were kept as we wanted to analyze song characteristics. However, we also obtained duplicated songs from the same year-end playlist when calling the Spotify API so duplicated songs in this case were removed from the dataset. In total, there are 1000 observations in the ```playlists_analysis_data``` dataset, which equals the number of songs on the Billboard Year-End Hot 100 singles lists from 2014 to 2023.
+```{r}
+#| label: tbl-dataset-preview
+#| tbl-cap: Preview of dataset on Billboard Year-End Hot 100 singles from 2014 to 2023 provided by Spotify
+#| echo: false
+#| warning: false
+#| message: false
+
+# Create table displaying data
+playlist_analysis_data |>
+  select(hit_year, track_duration_ms, tempo, loudness, mode_name, key_mode, period) |>
+  head() |>
+  kable()
+```
+Not seen in @tbl-dataset-preview, before_pandemic, major, and minor are numerical versions of the mode_name and period columns. The variables that were originally the raw dataset that was scraped are track_duration_ms, tempo, loudness, mode_name, and key_mode. track_duration_ms describes the duration of the song in milliseconds (ms), tempo is the mean (average) beats per minute (BPM) of the song, and loudness is the mean loudness of a top song in decibels (dB). mode_name represents the key the melody of the song is in, which is either "major" or "minor" and key_mode signifies the scale the song is in.
+
+The variables constructed from the raw dataset are before_pandemic, period, hit_year, major, and minor. How these variables were constructed was that hit_year was obtained by checking the name of the playlist and it represents the hit. From hit_year, the period column was constructed, which indicates whether the hit year of the song was before 2020, which was when the COVID-19 pandemic started, or during 2020 onwards. Reading from the period column, the before_pandemic column was created, where 1 represents that the song was a hit song before the pandemic and 0 otherwise. The major and minor columns represent whatever or not the melody of the song is in a major or minor key and the value would be 1 if it is that key and 0 otherwise. These columns were constructed by checking mode_name when it would indicate either "major" or "minor".
+
+## Variables of Interest
+As seen in @tbl-dataset-preview, there are multiple columns however our main variables of interest are before_pandemic, track_duration_ms, loudness, tempo, and mode_name for our model. The major and minor columns were used initially to visualize potential relationships between variables as seen in @fig-correlation-matrix. period, hit_year, and key_mode were used to visualize our data prior to training our model and to understand the data.
+
+# Model {#sec-model}
+From our analysis of the data, we observed that there were trends between a song's duration, loudness, tempo, and modality for top songs prior to 2020 and 2020 onwards. We are interested in investigating if a song is likely to be a top song prior to 2020 on what we know about the duration, loudness, tempo, and modality of a top song. We will do this by creating a model. Understanding the characteristics of songs before 2020 will help us not only understand what made songs hits before the pandemic but also reflect on what makes a song less likely to be a hit before 2020 and instead more likely to be a hit from 2020 onwards.
+
+## Model set-up
+To predict whether a top song was a hit before 2020, we will assume that there is a relationship between the outcome variable if the song is a top song before 2020 and our variables of interest: duration, loudness, tempo, and modality. Our variables of interest will be the predictor variables for the model. We will define our model as a logistic regression model with a Bayesian approach as follows:
+\begin{align*} 
+y_i|\pi_i &\sim \mbox{Bern}(\pi_i) \\
+\mbox{logit}(\pi_i) &= \beta_0 + \beta_1 \times \mbox{duration}_i + \beta_2 \times \mbox{loudness}_i + \beta_3 \times \mbox{tempo}_i + \beta_4 \times \mbox{modality}_i\\
+\beta_0 &\sim \mbox{Normal}(0, 2.5) \\
+\beta_1 &\sim \mbox{Normal}(0, 2.5) \\
+\beta_2 &\sim \mbox{Normal}(0, 2.5) \\
+\beta_3 &\sim \mbox{Normal}(0, 2.5) \\
+\beta_4 &\sim \mbox{Normal}(0, 2.5) \\
+\end{align*}
+We define $y_i$ to be a top song $i$, which if it is 1 represents a top song before 2020 and 0 if it is a top song from 2020 onwards. $\pi_i$ is the probability of a top song being a hit before 2020. Following this, $\mbox{logit}(\pi_i)$ is the log odds of a top song $i$ being a top song before 2020. Let $\mbox{duration}_i$ be the duration of the top song in milliseconds (ms) and $\mbox{loudness}_i$ to be the mean loudness of a top song in decibels (dB). Set $\mbox{tempo}_i$ to be the mean beats per minute (BPM) of a top song and $\mbox{modality}_i$ to be the modality of the top song, where 1 means the melody of the song is in a minor key and 0 if it is in a major key. $\beta_0$ is the intercept that represents the log odds when all predictor variables are 0. $\beta_1$ is the coefficient that signifies the log odds of a song being a hit song before 2020 when the $\mbox{duration}_i$ changes by 1 ms. $\beta_2$ is the coefficient that stands for the log odds of a song being a hit song before 2020 when $\mbox{loudness}_i$ changes by 1 dB. $\beta_3$ and $\beta_4$ both represent the log odds of a song being a hit song before 2020 when $\mbox{tempo}_i$ and $\mbox{modality}_i$ changes, respectively.
+
+We ran the model using the rstanarm package [@citerstanarm] and R [@citeR] with the default priors from the rstanarm package. Diagnostics related to the model such as a trace plot, Rhat plot, and posterior predictive check can be found at @sec-appendix.
+
+## Model justification
+```{r}
+#| label: fig-causal-model
+#| fig-cap: Causal relationship between song characteristics and hit song before 2020
+#| echo: false
+#| warning: false
+#| message: false
+
+# Referenced https://www.erikigelstrom.com/articles/causal-graphs-in-r-with-diagrammer/ and https://stackoverflow.com/questions/42737645/how-to-export-images-of-diagrammer-in-r for code
+causal_model <- "digraph {
+  graph []
+  # Nodes
+  node [shape = plaintext]
+    A [label = 'Hit song before 2020']
+    B [label = 'Modality']
+    C [label = 'Loudness']
+    D [label = 'Duration']
+    E [label = 'Tempo']
+    F [label = 'Lyrics (Confounder)']
+  # Edges for non-confounding variables
+  edge []
+    B->A
+    C->A
+    D->A
+    E->A
+{ rank = same; }
+  # Edges for confounding variable
+  edge [style = dashed]
+    F -> B
+    F -> C
+    F -> D
+    F -> E
+    F -> A
+}"
+# Export the drawing as a png
+exporting_image <- grViz(causal_model) |>
+  export_svg() |>
+  charToRaw() |>
+  rsvg_png("../other/sketches/graph_2_casual_model.png", width = 1000)
+
+# NOTE: Had to save diagram and read it in as a image since grViz can be only render in HTML and
+# not in PDFs
+# Referenced https://stackoverflow.com/questions/23861000/displaying-images-in-r-in-version-3-1-0
+# Read in the image and display it
+the_image <- readPNG("../other/sketches/graph_2_casual_model.png")
+plot.new()
+rasterImage(the_image, 0, 0, 0.8, 1.13)
+```
+A logistic regression model was chosen because our outcome variable if the song is a top song before 2020, is a binary outcome. However, alternative models were considered. The multiple linear regression model was a candidate for our model since the model has multiple predictor variables but it assumes that the outcome is continuous instead of discrete. Other regression models like negative binomial regression were not chosen since we are not dealing with discrete counts for the outcome but instead discrete binary values of 1 and 0. Our logistic regression model describes the following causal relationship (@fig-causal-model) where song characteristics predicts whatever a hit song was made before 2020, excluding a confounding variable, lyrics. The assumption we make is that there is a relationship between song characteristics and a top song being a hit before 2020. In @fig-causal-model, the reason lyrics, if there are any, is a confounding variable is because lyrics can affect not only if the song was a hit before 2020 but also song characteristics from the way the lyrics are performed. However, we are unable to observe the effects of lyrics directly with our data. Weakness and further improvements to the model are discussed in @sec-discussion.
+
+# Results {#sec-results}
+In this section, we visualized our data through graphs and tables as well as present the results from our model. 
+
+## Difference in song characteristics before 2020 (the pandemic) and during and after 2020 (the pandemic) of songs from Billboard's Year-End Hot 100 singles list
+
+### Scale and Modality
+```{r}
+#| label: fig-mode-bar
+#| fig-cap: "Proportion of songs whose modality is in a major or minor key before 2020 (the pandemic) versus during and after 2020 (the pandemic) from Billboard's Year-End Hot 100 singles"
+#| echo: false
+#| warning: false
+#| message: false
+
+proportion_of_each_mode <-
+  playlist_analysis_data |>
+  # Group by if song was a hit before or during and after the pandemic
+  group_by(period) |>
+  # Count each scale
+  count(mode_name) |>
+  # rename count column to num_of_key_mode
+  rename(
+    "num_of_mode_name" = n
+  ) |>
+  mutate(
+    proportion_mode_name = round(num_of_mode_name / sum(num_of_mode_name), 2)
+  )
+
+# Referenced 
+#  for code
+proportion_of_each_mode |>
+  ggplot(mapping = aes(x = mode_name, y = proportion_mode_name)) +
+  # Creates two graphs based on each period
+  facet_wrap(facets = vars(period), dir = "h") +
+  geom_bar(stat = "identity", binwidth = 3, fill = "#e85569") +
+  theme_minimal() +
+  labs(
+    x = "Modality",
+    y = "Proportion"
+  ) +
+  theme(axis.text.x = element_text(angle = 90))
+```
+
+```{r}
+#| label: tbl-mode-table
+#| tbl-cap: "Proportion of songs whose modality is in a major or minor key before 2020 (the pandemic) versus during and after 2020 (the pandemic) from Billboard's Year-End Hot 100 singles"
+#| echo: false
+#| warning: false
+#| message: false
+
+# Create table for dataframe pertaining to modality
+proportion_of_each_mode |>
+  rename(
+    "Period" = period,
+    "Modality" = mode_name,
+    "Count of each mode" = num_of_mode_name,
+    "Proportion of each mode" = proportion_mode_name
+  ) |>
+  kable()
+```
+```{r}
+#| label: fig-key-mode-bar
+#| fig-cap: "Proportion of songs in different scales before 2020 (the pandemic) versus during and after 2020 (the pandemic) from Billboard's Year-End Hot 100 singles"
+#| echo: false
+#| warning: false
+#| message: false
+
+proportion_of_each_key_mode <-
+  playlist_analysis_data |>
+  # Group by if song was a hit before or during and after the pandemic
+  group_by(period) |>
+  # Count each scale
+  count(key_mode) |>
+  # rename count column to num_of_key_mode
+  rename(
+    "num_of_key_mode" = n
+  ) |>
+  mutate(
+    proportion_key_mode = round(num_of_key_mode / sum(num_of_key_mode), 2)
+  )
+
+# Referenced  for code
+proportion_of_each_key_mode |>
+  ggplot(mapping = aes(x = key_mode, y = proportion_key_mode)) +
+  # Creates two graphs based on their period
+  facet_wrap(facets = vars(period), dir = "v") +
+  geom_bar(stat = "identity", fill = "#3E509A") +
+  theme_minimal() +
+  labs(
+    x = "Scale",
+    y = "Proportion"
+  ) +
+  theme(axis.text.x = element_text(angle = 90))
+```
+@fig-mode-bar and @tbl-mode-table reveal that a proportion of hit songs before and during and after 2020 that had melodies in a major key was around ~60% (61% before 2020 and 63% from 2020 onwards). Songs in a minor key made up about 40% or less of songs (39% before 2020 and 37% from 2020 onwards) from 2014 to 2023 on Billboard's Year-End Hot 100 singles list. There was a slight increase in songs in a major key from 2020 afterwards however songs in a major key making up a majority of Billboard's Year-End Hot 100 singles stayed consistent before 2020 and 2020 onwards.
+
+When looking into the specific scales of the songs, @fig-key-mode-bar and @tbl-scale-table show that there was an increase in songs in C major during and after 2020 with C major and C# major making up a majority of songs from Billboard's list from 2020 onwards at approximately 9% each. Prior to 2020, the proportion of songs in C major was at 11% however there was a decline in songs in C major after the start of the pandemic. There was a decline in songs in G# major from 8% of the list to 6% of the list as well as an increase in songs in D minor and D# minor from less than 1% of the list to 2% each. There was also a decline in songs in F minor where they would make up 6% of Billboard's list prior to 2020 to 4% during and after 2020.
+\newpage
+
+### Track Duration {#sec-track-duration}
+```{r}
+#| label: fig-track-duration-scatterplot
+#| fig-cap: "Relationship between the hit year and track duration of a song (in ms) on Billboard's Year-End Hot 100 singles list. Songs from the same year are grouped in the same colour and the horizontal, dashed line divides the hit tracks before 2020 and hit tracks from 2020 and beyond. Blue, smoother line describes the overall trend and relationship between hit year and track duration."
+#| echo: false
+#| warning: false
+#| message: false
+
+playlist_analysis_data |>
+  ggplot(aes(x = hit_year, y = track_duration_ms, color = hit_year)) +
+  geom_smooth() +
+  geom_jitter() + # So we can see all points
+  geom_point(alpha = 0.3) +
+  theme_minimal() +
+  labs(
+    x = "Hit year",
+    y = "Duration of song (in ms)"
+  ) +
+  geom_vline(xintercept = 2020, linetype = "dashed") +
+  scale_color_gradient(low = "#3E509A", high = "#e85569", guide = "none")
+```
+
+```{r}
+#| label: fig-track-duration-hist
+#| fig-cap: "Distribution of track duration (in ms) before 2020 (the pandemic) versus during and after 2020 (the pandemic) from songs on Billboard's Year-End Hot 100 singles list."
+#| echo: false
+#| warning: false
+#| message: false
+# Referenced  for code
+playlist_analysis_data |>
+  ggplot(mapping = aes(x = track_duration_ms)) +
+  # Creates two histograms based on period
+  facet_wrap(facets = vars(period), dir = "v") +
+  geom_histogram(binwidth = 7000, fill = "#e85569") +
+  theme_minimal() +
+  labs(
+    x = "Duration of song (in ms)",
+    y = "Count"
+  )
+```
+```{r}
+#| label: tbl-track-duration-stats-before
+#| tbl-cap: "Minimum, quartiles, median, and maximum of track duration (in ms) before 2020 (the pandemic) on Billboard's Year-End Hot 100 list"
+#| echo: false
+#| warning: false
+#| message: false
+
+playlist_analysis_data |>
+  # Filter for "Before Pandemic"
+  filter(period == "Before Pandemic") |>
+  # Choose track_duration_ms
+  select(track_duration_ms) |>
+  # Rename columns
+  rename(
+    "Duration of song (in ms)" = track_duration_ms
+  ) |>
+  summary() |>
+  kable()
+```
+
+```{r}
+#| label: tbl-track-duration-stats-during-after
+#| tbl-cap: "Minimum, quartiles, median, and maximum of track duration (in ms) during and after 2020 (the pandemic) on Billboard's Year-End Hot 100 list"
+#| echo: false
+#| warning: false
+#| message: false
+
+playlist_analysis_data |>
+  # Filter for During and After Pandemic
+  filter(period == "During and After Pandemic") |>
+  # Choose track_duration_ms
+  select(track_duration_ms) |>
+  # Rename columns
+  rename(
+    "Duration of song (in ms)" = track_duration_ms
+  ) |>
+  summary() |>
+  kable()
+```
+@fig-track-duration-scatterplot reveals that songs over the years from 2014 to 2020 decreased slightly in duration and from 2020 onwards, there was almost no change in trend overall based on the blue, smoother line. @fig-track-duration-hist shows that the distribution of top songs before the pandemic and during and after the pandemic are skewed to the right. According to  @tbl-track-duration-stats-during-after and @tbl-track-duration-stats-before, the distribution of top songs during and after the pandemic is more dispersed around their mean of 195999 ms than those from before the pandemic where there is less variance, which means how close data points are to their mean/average value. Based on the distribution, there are more songs with a duration of about 216286 ms for top songs before the pandemic. @tbl-track-duration-stats-during-after and @tbl-track-duration-stats-before also show that hit songs during and after the pandemic are shorter in length on average with a mean track duration of 195999 ms compared to hit songs from before the pandemic with a mean track duration of 216286 ms. The median (the middle value of the data when sorted) track duration also decreased from 214070 ms before 2020 to 195120 ms for 2020 onwards.
+
+
+### Loudness {#sec-loudness}
+```{r}
+#| label: fig-loudness-scatterplot
+#| fig-cap: "Relationship between the hit year and loudness of a song (in dB) on Billboard's Year-End Hot 100 singles list. Songs from the same year are grouped in the same colour and the horizontal, dashed line divides the hit tracks before 2020 and hit tracks from 2020 and beyond. Blue, smoother line describes the overall trend and relationship between hit year and loudness."
+#| echo: false
+#| warning: false
+#| message: false
+# Referenced  for code
+
+# Creates scatterplot
+playlist_analysis_data |>
+  ggplot(aes(x = hit_year, y = loudness, color = hit_year)) +
+  geom_smooth() +
+  geom_jitter() + # So we can see all points
+  geom_point(alpha = 0.3) +
+  theme_minimal() +
+  labs(
+    x = "Hit year",
+    y = "Loudness of song (in dB)"
+  ) +
+  # Creates vertical line to show divide between top songs before 2020 and 2020
+  # onwards
+  geom_vline(xintercept = 2020, linetype = "dashed") +
+  scale_color_gradient(low = "#3E509A", high = "#e85569", guide = "none")
+```
+```{r}
+#| label: fig-loudness-hist
+#| fig-cap: "Distribution of loudness (in dB) of hit songs before 2020 (the pandemic) versus during and after 2020 (the pandemic) from Billboard's Year-End Hot 100 list"
+#| echo: false
+#| warning: false
+#| message: false
+# Referenced  for code
+playlist_analysis_data |>
+  ggplot(mapping = aes(x = loudness)) +
+  # Creates 2 histograms based on their period
+  facet_wrap(facets = vars(period), dir = "v") +
+  geom_histogram(binwidth = 0.3, fill = "#3E509A") +
+  theme_minimal() +
+  labs(
+    x = "Loudness of song (in dB)",
+    y = "Count"
+  )
+```
+```{r}
+#| label: tbl-loudness-stats-before
+#| tbl-cap: "Minimum, quartiles, median, and maximum of loudness of song (in dB) before 2020 (the pandemic) on Billboard's Year-End Hot 100 list"
+#| echo: false
+#| warning: false
+#| message: false
+
+playlist_analysis_data |>
+  # Filter for "Before Pandemic"
+  filter(period == "Before Pandemic") |>
+  # Choose loudness
+  select(loudness) |>
+  # Rename columns
+  rename(
+    "Loudness of song (in dB)" = loudness
+  ) |>
+  summary() |>
+  kable()
+```
+```{r}
+#| label: tbl-loudness-stats-during-after
+#| tbl-cap: "Minimum, quartiles, median, and maximum of loudness of song (in dB) during and after 2020 (the pandemic) on Billboard's Year-End Hot 100 list"
+#| echo: false
+#| warning: false
+#| message: false
+
+playlist_analysis_data |>
+  # Filter for "During and After Pandemic"
+  filter(period == "During and After Pandemic") |>
+  # Choose loudness
+  select(loudness) |>
+  # Rename columns
+  rename(
+    "Loudness of song (in dB)" = loudness
+  ) |>
+  summary() |>
+  kable()
+```
+@fig-loudness-scatterplot shows that from 2014 to 2023, there was a decrease in loudness overall with hit songs as seen with the negative slope of the blue, smoother line. @fig-loudness-hist reveals that the distribution of top songs' loudness is left-skewed with the loudness of top songs from during and after the pandemic being more dispersed than those before the pandemic around their mean. This suggests that top songs from 2020 onwards varied more in terms of their loudness when compared with top songs before 2020. @tbl-loudness-stats-before and @tbl-loudness-stats-during-after show that before the pandemic, top songs on Billboard's list had a mean loudness of -5.964 dB while during and after the pandemic, they had a mean loudness of -6.516 dB. The median loudness of top tracks has also decreased from -5.700 dB prior to the pandemic to -6.151 dB during and after the pandemic. This indicates that hit songs during and after the pandemic are louder than hit songs before the pandemic.
+\newpage
+
+### Tempo {#sec-tempo}
+```{r}
+#| label: fig-tempo-scatterplot
+#| fig-cap: "Relationship between the hit year and tempo of a song (the beats per minutes (BPM) of a song) on Billboard's Year-End Hot 100 singles list. Songs from the same year are grouped in the same colour and the horizontal, dashed line divides the hit tracks before 2020 and hit tracks from 2020 and beyond. Blue, smoother line describes the overall trend and relationship between hit year and tempo."
+#| echo: false
+#| warning: false
+#| message: false
+# Referenced  for code
+
+# Creates scatterplot
+playlist_analysis_data |>
+  ggplot(aes(x = hit_year, y = tempo, color = hit_year)) +
+  # Creates smoother line
+  geom_smooth() +
+  geom_jitter() + # So we can see all points
+  geom_point(alpha = 0.3) +
+  theme_minimal() +
+  labs(
+    x = "Hit year",
+    y = "Tempo of song (BPM)"
+  ) +
+  # Creates vertical line to represent the divide between top songs prior to
+  # 2020 and 2020 onwards
+  geom_vline(xintercept = 2020, linetype = "dashed") +
+  scale_color_gradient(low = "#3E509A", high = "#e85569", guide = "none")
+```
+```{r}
+#| label: fig-tempo-hist
+#| fig-cap: "Distribution of tempo (BPM) before 2020 (the pandemic) versus during and after 2020 (the pandemic) from Billboard's Year-End Hot 100 list"
+#| echo: false
+#| warning: false
+#| message: false
+# Referenced  for code
+playlist_analysis_data |>
+  ggplot(mapping = aes(x = tempo)) +
+  # Creates 2 histograms based on their period
+  facet_wrap(facets = vars(period), dir = "v") +
+  geom_histogram(binwidth = 3, fill = "#e85569") +
+  theme_minimal() +
+  labs(
+    x = "Tempo of song (BPM)",
+    y = "Count"
+  )
+```
+```{r}
+#| label: tbl-tempo-stats-before
+#| tbl-cap: "Minimum, quartiles, median, and maximum of tempo of a song (BPM) before 2020 (the pandemic) from Billboard's Year-End Hot 100 list"
+#| echo: false
+#| warning: false
+#| message: false
+
+playlist_analysis_data |>
+  # Filter for "Before Pandemic"
+  filter(period == "Before Pandemic") |>
+  # Choose tempo
+  select(tempo) |>
+  # Rename columns
+  rename(
+    "Tempo of song (BPM)" = tempo
+  ) |>
+  summary() |>
+  kable()
+```
+```{r}
+#| label: tbl-tempo-stats-during-after
+#| tbl-cap: "Minimum, quartiles, median, and maximum of tempo of a song (BPM) during and after 2020 (the pandemic) from Billboard's Year-End Hot 100 list"
+#| echo: false
+#| warning: false
+#| message: false
+
+playlist_analysis_data |>
+  # Filter for "During and After Pandemic"
+  filter(period == "During and After Pandemic") |>
+  # Choose tempo
+  select(tempo) |>
+  # Rename columns
+  rename(
+    "Tempo of song (BPM)" = tempo
+  ) |>
+  summary() |>
+  kable()
+```
+@fig-tempo-scatterplot reveals almost no change in tempo overall across top songs from 2014 to 2023 based on the blue smoother line appearing to be flat. However, looking at @tbl-tempo-stats-before and @tbl-tempo-stats-during-after shows that both the median and mean tempo of top songs before 2020 (about 120 BPM and 121 BPM, respectively) are lower or about equal to the median and mean tempo of top songs during and after 2020, which is about 120 BPM and 122 BPM, respectively. @fig-tempo-hist shows that in both periods of time, their distributions have skewness close to zero however there is less dispersion around the mean for hit songs prior to 2020. These results suggest that the tempos of top songs on Billboard's list are slightly faster during and after 2020.
+
+\newpage
+## Model Results {#sec-model-results}
+
+@tbl-model-result and @fig-model-result-ci show the results of our logistic regression model. @tbl-model-result presents the coefficient estimates obtained for our model with their mean absolute deviation (MAD) while @fig-model-result-ci showcases the coefficient estimates (the dot) alongside their 90% credible interval (the line). A coefficient estimate represents the change in the log odds of a song being a hit song prior to 2020 when one predictor variable changes by 1 unit as the other predictors stay constant [@citecoefficientsdef]. With the given data, the 90% credible interval is an interval where the true value of our coefficient estimate has a 90% probability of lying within [@citebayesiandef]. The mean absolute deviation is the average distance of a data point representing a hit song and the mean.
+
+@tbl-model-result indicates that the intercept $\beta_0$ is -2.002. This means that songs in a major key with tempo, loudness, and mode being 0 are less likely to be top songs before 2020. @tbl-model-result and @fig-model-result-ci reveal that the coefficient estimate of track duration $\beta_1$ is 0.000 when tempo, mode, and loudness remain constant and its 90% credible interval includes the value 0. This suggests that when the duration of the song changes the likelihood of a song being a top song prior to 2020 does not change or is impacted. When loudness varies and track duration, tempo, and mode stay fixed, @tbl-model-result indicates that its coefficient estimate for $\beta_2$ is 0.148 with a 90% credible interval above 0 as seen in @fig-model-result-ci. As the coefficient estimate is positive, it means that hit songs that are louder are more likely to be a hit song prior to 2020. Since the coefficient estimate for tempo $\beta_3$ is −0.002 and its 90% credible interval is slightly below 0 when only tempo varies, it means songs with slower tempos are more likely to be a hit song prior to 2020. The coefficient estimate for the modality (mode) $\beta_4$ is 0.095 and its 90% credible interval being wider suggests that top songs that are in a minor key are likely to be a hit before 2020. However, the true value for the coefficient for mode can also be negative according to @fig-model-result-ci since the interval passes through 0.
+
+```{r}
+#| label: tbl-model-result
+#| tbl-cap: Relationships of a hit song being a hit before 2020 / the pandemic with its tempo, song duration, loudness, and modality (mode) with their mean absolute deviation (MAD) values in parenthesis.
+#| echo: false
+#| warning: false
+#| message: false
+
+modelsummary(
+  # List out information from hit_song_model_results
+  list("A hit song before 2020" = hit_song_model_results),
+  # Specify we're using MAD as the statistic
+  statistic = "mad"
+)
+```
+
+```{r}
+#| label: fig-model-result-ci
+#| fig-cap: The credible intervals (line) for coefficient estimates (dot) of predictors of a hit song before 2020
+#| echo: false
+#| warning: false
+#| message: false
+# Referenced  for code
+# Specify credible interval to be 90% and present model results
+modelplot(hit_song_model_results, conf_level = 0.9) +
+  labs(x = "90 per cent credible interval")
+```
+
+
+\newpage
+
+# Discussion {#sec-discussion}
+An overview that was done is that in @sec-results, we did a preliminary analysis of the data we obtained from playlists from Spotify by graphing the relationships between song characteristics and other variables in the dataset such as hit year. We also introduced our logistic regression model in a Bayesian framework for top songs prior to 2020 where their results were shown in @sec-model-results.
+
+## Songs in a minor key are more likely to be a hit before the pandemic and less so during and after the pandemic 
+From @sec-results, we found that when analyzing the data initially, there were more songs that were in a minor key prior to the pandemic than during and after it. This is also seen in our model result @sec-model-results where it showed that songs in a minor key were more likely a hit before 2020. This suggests that songs that are in a minor key are less likely to be a hit during and after the pandemic. We also saw from @fig-key-mode-bar that there was a decline in songs in different minor scales such as F minor, which made up 6% of Billboard's list before 2020 to 4%. There was also an increase in songs in C major with C major and C# major being about equally the most popular scales while before 2020, only songs in C# major were the most popular. Music keys can be linked to specific emotions or experiences and it was a common practice before the 20th century. In Christian Schubart's *Ideen zu einer Aesthetik der Tonkunst*, he describes the emotional characteristics of each key [@citescaleemotion]. When we apply @citescaleemotion's descriptions to songs in the 21st century, C major is described to be simple and innocent and F minor is described to be experiencing a "deep depression" and "longing for the grave". @citescaleemotion tends to describe minor keys as more somber while major keys tend to be described as more cheerful. Major keys like C major may make people feel nostalgic or joyful when listening to the music and therefore there it became one of the most popular keys for hit songs to be in after the pandemic. From @sec-model-results, @fig-mode-bar, @fig-key-mode-bar, songs in minor keys like F minors were more popular before the pandemic and less so after the start of the pandemic. The decline in hit songs being in F minor indicates that people tend to not listen to sadder-sounding songs during the pandemic onwards compared to before 2020. These results indicate that people during the pandemic had a preference for music that was more cheerful.
+
+## Louder and slower songs are more likely to be hits before the pandemic
+Our model in @sec-model-results reveals that louder and slower songs are more likely to be hits before the pandemic. According to @sec-tempo and @sec-loudness, songs that are quieter and faster were on average hits during and after the pandemic. In a study conducted by @citeemotionalresponses, they found that louder music and faster tempo can trigger responses associated with survival responses like increased heart rate. This suggests that popular songs from 2014 to 2023 are overall balanced with the emotional response they evoke in listeners in terms of loudness and tempo so that it does not cause too much anxiety in listeners or are too calming.
+
+## Duration of the song does not impact the likelihood of a song being a hit before the pandemic but top songs during and after the pandemic are shorter
+In terms of the duration of the song, our model @sec-model-results suggested that the duration of the song does not impact how likely a song is to be a hit before 2020. When looking at @sec-track-duration, top songs after 2019 had on average a shorter duration. This indicates that prior to 2020, the duration of the hit song did not impact it being more likely being a hit song on Billboard's Year-End Hot 100 list. However, when comparing the track duration of top songs from the two periods, before 2020 and 2020 onwards, top songs are shorter on average during and after 2020. During 2020, TikTok experienced its largest number of downloads of around 315 million downloads indicating its rise in popularity during the pandemic [@citetiktokstats]. Videos on the platform are often set to sound clips or snippets from a song and songs that were trending on the platform through dance challenges for example gained popularity outside of TikTok through streaming sites. Often catchy songs would gain popularity on TikTok and the shorter the song is the more replays it would get. This could have impacted what songs became popular as well as how long newer songs created after 2019 are. However based on our model, prior to 2020, duration did not impact a song's popularity.
+
+## Areas of improvement
+The analysis was faced with several limitations. While creating the dataset, we obtained more songs before 2020 in order to have more observations. This is a trade-off for having a more accurate dataset for the model over a dataset that is balanced between the two groups we were observing, which is before the pandemic and during and after the pandemic.
+
+Another limitation of our analysis is that the Billboard list itself. Since the list also considers the year before, songs on the list that hit their peak popularity from December 2019 to the beginning of 2020 before the pandemic started might not be representative of the potential changes in terms of song characteristics of songs that became popular after the pandemic started. Human error could have occurred when adding music to the playlists we used based on the Billboard Year-End Hot 100 lists where the wrong song could have been added to the playlist for example.
+
+As seen in @fig-causal-model, lyrics is a confounding variable in our model since it can influence the song characteristics in our model and also impact the likelihood of the model's outcome, which was if a top song is a hit before 2020 or not. Since we were not able to directly analyze lyrics in our analysis or incorporate it in our model, this could have impacted the model and the coefficient estimates seen.
+
+## Next steps 
+
+Results from the analysis can be used to understand the emotional state of different populations before and after the pandemic and assist with how music therapy can be further improved. For instance, music therapists could choose or suggest their patients to play songs in specific keys like C major during treatment. Further investigations could be conducted on how lyrics impact song characteristics and also how lyrics could impact the popularity of songs.
+
+\newpage
+
+\appendix
+
+# Appendix {#sec-appendix}
+
+## Shiny application 
+Accompanying the paper, a Shiny app [@citeshiny] using shinyWidgets [@citeshinyWidgets] and plotly [@citeplotly] was created that contains interactive visualizations. The application can be found here: 
+
+## Acknowledgments 
+We would like the acknowledge  for some of the R code used in this paper to produce the tables and graphs.
+
+## Note on Reproducing 
+To reproduce the results in the paper, first run the scripts found in the scripts folder of the GitHub repository corresponding to the paper starting with the script, 00-install_packages.R to install the necessary packages. 
+
+## Code styling 
+Code written in the scripts was checked and styled with lintr [@citelintr] and styler [@citestyler]. 
+
+## Posterior predictive check for model {#sec-model-details-posterior-check}
+@fig-posteriorpredictive shows that the posterior distribution of the fitted model is consistent with the actual data using code modified from @citetellingstorieswithdata. 
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| label: fig-posteriorpredictive
+#| fig-cap: "How the data impacts how the model fits"
+#| fig-subcap: ["Posterior prediction check for the model"]
+#| layout-ncol: 1
+# Referenced  for code
+rstanarm::pp_check(hit_song_model_results) +
+  theme_minimal() +
+  theme(legend.position = "bottom")
+```
+\newpage
+## Diagnostics for model {#sec-model-details-diagnostics}
+@fig-convergencecheck shows that the sampling algorithm used, the Markov chain Monte Carlo (MCMC) algorithm, did not run into issues as the posterior distribution for the model was created. Using the checks presented by @citetellingstorieswithdata, both graphs do not show anything abnormal since the lines in the trace plot fluctuates a lot horizontally and all coefficients are close to 1 and less than 1.1 in the rhat plot.
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| label: fig-convergencecheck
+#| fig-cap: "Checking the convergence of the Markov chain Monte Carlo (MCMC) algorithm for hit song model"
+#| fig-subcap: ["Trace plot for model", "Rhat plot for model"]
+#| layout-ncol: 2
+# Referenced  for code
+# Creates trace plot
+plot(hit_song_model_results, "trace") + theme_minimal()
+# Creates rhat plot
+plot(hit_song_model_results, "rhat") + theme_minimal()
+```
+\newpage
+## Additional Figures 
+
+```{r}
+#| label: fig-correlation-matrix
+#| fig-cap: Correlation between numerical characteristics of songs from Billboard Year-End Hot 100 singles list and if song was a hit before 2020/the pandemic
+#| echo: false
+#| warning: false
+#| message: false
+
+# Referenced https://rpubs.com/Alema/1000474
+numeric_playlist_analysis_data <-
+  playlist_analysis_data |>
+  select(-c(mode_name, key_mode, period, hit_year))
+
+ggcorrplot(cor(numeric_playlist_analysis_data),
+  hc.order = TRUE,
+  outline.color = "white", lab = TRUE, legend.title = "Correlation"
+)
+```
+
+\newpage
+
+## Additional Tables
+
+```{r}
+#| label: tbl-scale-table
+#| tbl-cap: "Proportion of songs in different scales before 2020 (the pandemic) versus during and after 2020 (the pandemic) from from Billboard's Year-End Hot 100 singles"
+#| echo: false
+#| warning: false
+#| message: false
+
+proportion_of_each_key_mode |>
+  rename(
+    "Period" = period,
+    "Scale" = key_mode,
+    "Count of each scale" = num_of_key_mode,
+    "Proportion of each scale" = proportion_key_mode
+  ) |>
+  kable()
+```
+
+\newpage
+
+# References
