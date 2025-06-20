@@ -4,7 +4,6 @@ author:
   - Rohan Alexander
   - Luca Carnegie
   - Nathalie Moon
-thanks: "Code and data are available at: https://github.com/lcarnegie/llms-achievement. We thank attendees at JSM 2024 for helpful suggestions. This research was approved by the University of Toronto's Research Ethics Board (Protocol 47725). Comments: rohan.alexander@utoronto.ca"
 date: today
 date-format: long
 abstract: "To help understand the effect of Large Language Models (LLMs) on data science practice we examine the extent to which self-reported LLM usage is correlated with the mark that a student received on a final paper in a classroom data science setting. We find some mild evidence from this observational study that LLM usage may be associated with better scores, especially for students who do not natively speak English. Additionally, comparing self-reported usage, there was a considerable increase between the class that occurred in January-April 2024 where 41 per cent of students self-reported extensive LLM usage and the class that occurred in September-December 2024 where 69 per cent reported extensive LLM usage. Despite the classroom setting used for evaluation, the task of interest is similar to the work done by professional data scientists. Our finding suggests the need for more extensive work evaluating how LLMs can be integrated into the data science workflow in a way that provides value in both the classroom and the workplace."
@@ -13,8 +12,6 @@ number-sections: true
 table-of-contents: false
 bibliography: references.bib
 ---
-
-<!-- Contributions: RA: Conceptualization, Data Curation, Formal Analysis, Funding Acquisition, Investigation, Methodology, Project Administration, Software, Visualization, Writing – Original Draft Preparation, Writing – Review & Editing; LC: Formal Analysis, Visualization, Writing – Original Draft Preparation, Writing – Review & Editing; NM: Conceptualization, Methodology, Writing – Original Draft Preparation, Writing – Review & Editing.  -->
 
 ```{r setup}
 #| include: false
@@ -60,15 +57,15 @@ In the context of teaching statistics and data science, LLMs could be useful for
 
 The tasks involved in a trustworthy data science workflow can be generally broken down into a few key competencies [@Adhikari2021Interleaving; @Gibbs2021Building]. One is programming, which is done when cleaning, analyzing, and visualizing data, often using programming languages like R or Python. Another is writing, which is primarily done when communicating results. The potential for LLMs to positively affect students' academic performance in data science stems from the capabilities these models have already demonstrated in adjacent professional fields.
 
-In terms of computer programming, @Peng_2023 found a positive impact of GitHub Copilot (an LLM-powered programming assistant) on productivity. Specifically, in an experiment involving 95 freelance programmers, they found that a treatment group of programmers with access to GitHub Copilot completed a standardized programming task 56 per cent faster than the control group. Programmers with less experience saw the greatest improvements in productivity. @DellAcqua_2023, focusing on management consulting tasks, provide evidence that LLMs can improve writing productivity. In a field experiment involving consultants from Boston Consulting Group they found that the use of OpenAI's GPT-4 led to a 25 per cent increase in the delivery speed of business tasks, most of which involved some writing, as well as a 40 per cent increase in human-rated performance on those tasks. Like computer programming, these productivity increases were most pronounced for those with below average performance, with their output increasing by 43 per cent. @Bien2025 taught MBA students how to use GitHub Copilot to turn their English prompts into R code. They found this approach was successful, and better than the use of "point-and-click" software. They note that teaching some technical aspects, such as R Markdown, could help the learners interact with GitHub Copilot.
+In terms of computer programming, @Peng_2023 found a positive impact of GitHub Copilot (an LLM-powered programming assistant) on productivity. Specifically, in an experiment involving 95 freelance programmers, they found that a treatment group of programmers with access to GitHub Copilot completed a standardized programming task 56 per cent faster than the control group. Programmers with less experience saw the greatest improvements in productivity. @DellAcqua_2023, focusing on management consulting tasks, provide evidence that LLMs can improve writing productivity. In a field experiment involving consultants from Boston Consulting Group they found that the use of OpenAI's GPT-4 led to a 25 per cent increase in the delivery speed of business tasks, most of which involved some writing, as well as a 40 per cent increase in human-rated performance on those tasks. Like computer programming, these productivity increases were most pronounced for those with below-average performance, with their output increasing by 43 per cent. @Bien2025 taught MBA students how to use GitHub Copilot to turn their English prompts into R code. They found this approach was successful, and better than the use of "point-and-click" software. They note that teaching some technical aspects, such as R Markdown, could help the learners interact with GitHub Copilot.
 
 @Valenzuela_2024 argue that LLMs lead to a loss of serendipity which may lead to less original work, and potentially de-skilling primarily with respect to programming ability, among other consequences. These outcomes could negatively affect students' effective learning of data science. @Ellis_Slade_2023 take a more optimistic perspective and argue that LLMs are just another technology that will impact statistics and data science education. Similarly, @Tu_2024 acknowledge that LLMs can streamline many parts of a data science workflow. With that in mind, they suggest that data-scientists-in-training should shift their self-perspectives from primarily being an "analyst" to primarily being a "product manager" responsible for strategic oversight of the analysis carried out by LLMs. @lehmann2025aimeetsclassroomlarge found the effect of LLMs on learning was nuanced and depended on the way the LLM was used and the level of prior knowledge. At the high school level @Lazar_2023 found that LLMs could help creativity, provide academic support when teachers were unavailable, and model certain types of writing well. But teachers were found to have concerns about over-reliance, academic integrity, de-skilling, and an overall loss of agency in writing and critical thinking.
 
 @Cahill_2024 surveyed undergraduate political science students on their attitudes toward, and usage of, AI tools. They found that the use of ChatGPT was widespread. However, they also found that many students lacked confidence in using AI for academic purposes. Only 11 per cent "strongly agreed" that they know how to use AI to improve their writing. Students had nuanced views on appropriate AI use. Many respondents felt that using it to write whole papers was inappropriate, but using it for basic tasks like general assistance, writing feedback and basic data visualization appropriate. Finally, @handa2025education examine one million anonymized student conversations with Anthropic's Claude LLM, finding it was used for aspects including: creating practice questions, editing essays, finding explanations or solutions, debugging, and data analysis and visualization.
 
-In this paper we are interested in better understanding LLMs as a tool for producing trustworthy data science. We study how they were used by students in two upper-year undergraduate data science courses -- one in Winter 2024 (January to April) and another in Fall 2024 (September to December). We focus on the association between student academic performance and their LLM usage. Specifically, we examine the relationship between self-reported measures of student LLM usage and the mark a student got on a final paper, as well as student attitudes toward LLMs in general. This is based on students' final papers and a survey, conducted in third-year undergraduate data science courses at the University of Toronto. By examining how students interact with and perceive LLMs as tools, and how these variables translate into student outcomes, current practice with regard to LLM integration in data science can be better understood, leading to better recommendations for their future development.
+In this paper we are interested in better understanding LLMs as a tool for producing trustworthy data science. We study how they were used by students in two upper-year undergraduate data science courses -- one in Winter 2024 (January to April) and another in Fall 2024 (September to December). We focus on the association between student academic performance and their LLM usage. Specifically, we examine the relationship between self-reported measures of student LLM usage and the mark a student received on a final paper, as well as student attitudes toward LLMs in general. This is based on students' final papers and a survey, conducted in third-year undergraduate data science courses at the University of Toronto. By examining how students interact with and perceive LLMs as tools, and how these variables translate into student outcomes, current practice with regard to LLM integration in data science can be better understood, leading to better recommendations for their future development.
 
-We find some mild association between self-reported LLM usage and the mark received on the final paper, especially among students who were not native English speakers. Additionally, and more concretely, there was a considerable increase in the number of respondents who self-reported extensive LLM usage and also those who considered LLM usage to be appropriate and ethical for university, when we compared the results in the class at the start of 2024 with the class at the end of 2024. Taken together it is clear that considerable additional work is needed understanding the appropriate use of generative AI in statistics and data science pedagogy.
+We find some mild association between self-reported LLM usage and the mark received on the final paper, especially among students who were not native English speakers. Additionally, and more concretely, there was a considerable increase in the number of respondents who self-reported extensive LLM usage and also those who considered LLM usage to be appropriate and ethical for university, when we compared the results in the class at the start of 2024 with the class at the end of 2024. Taken together it is clear that considerable additional work is needed to understand the appropriate use of generative AI in statistics and data science pedagogy. Details of research ethics approval are available in [Appendix -@sec-research-ethics] and our code and data are available in a repository detailed in [Appendix -@sec-data-availability].
 
 The remainder of this paper is structured as follows: @sec-data visualizes and analyzes survey data, self-reported LLM usage, and final marks. @sec-model specifies a model used to investigate the relationship. @sec-results describes and analyzes the model's results. @sec-discussion discusses the implications of the findings for data science education and future research and practice at the intersection of LLMs and trustworthy data science.
 
@@ -84,9 +81,9 @@ To investigate the relationship between students' LLM usage and attitudes and th
 
 All data are from students taking STA302 "Methods of Data Analysis I" in the Winter 2024 semester (January to April 2024), or students taking STA304 "Surveys, Sampling, and Observational Data" in the Fall 2024 semester (September to December 2024), at the University of Toronto. STA302 had 275 students initially enrolled which reduced to 154 students by the end of the semester. Similarly, STA304 had 275 students initially, reduced to 196 students by the end of the semester. These reductions reflect a normal rate of attrition for undergraduate statistics courses at the University of Toronto. Assessment in both courses was heavily based on three papers, reflecting real-world data science tasks, submitted over the course of the 12-week semester.
 
-The student marks that we analyze are based only on the final paper, which was done individually. By this stage, uninterested students have typically dropped the course, and students are familiar with course expectations. A typical paper submission was 10-20 pages, and required students to conduct original research to answer a research question of interest to them. It reflects the skills typically used by a professional data scientist. Students are expected to develop a research question of interest to them, identify or collect data to answer the question, conduct statistical analysis, and write a short paper. Examples of final papers (shared with consent) include: @emilysu; @hannahyu; and @bennyrochwerg.
+The student marks that we analyze are based only on the final paper, which was done individually. By this stage, uninterested students have typically dropped the course, and students are familiar with course expectations. A typical paper submission was 10-20 pages, and required students to conduct original research to answer a research question of interest to them. It reflects the skills typically used by a professional data scientist. Students are expected to develop a research question of interest to them, identify or collect data to answer the question, conduct statistical analysis, and write a short paper. Three examples of final papers (shared with consent) are available in the repository detailed in [Appendix -@sec-data-availability].
 
-By the time they are working on their final paper, students have submitted and received feedback on two previous papers with similar requirements and rubrics to that of the final paper. Each paper has the same basic structure and expectations. Before the final paper is due, students have received feedback on all their previous work in the class (including their past papers) and there is an optional period of peer review.
+By the time they are working on their final paper, students have submitted and received feedback on two previous papers with similar requirements and rubrics to that of the final paper. Each paper has the same basic structure and expectations. Before the final paper is due, students have received feedback on all their previous work in the class (including their past papers) and there is an optional period of peer review. The specific instructions provided to the students are available in the repository detailed in [Appendix -@sec-data-availability]. Other assessments in the classes were a midterm exam and in-class quizzes. These were not included in our model. In the case of the in-class quizzes, this is because they were done in self-assigned groups that could change each week and allowed resubmission after initial grading, so almost all students received full marks. Similarly, the midterm was made up of questions from a question bank that the students had access to before the test and almost all students got more than 90 per cent.
 
 The pre-requisites of this course mean that the typical student is an upper-year undergraduate. Coding and writing are major parts of the course. Students are welcome to use R or Python, but the majority code in R because that is the programming language currently mostly taught in pre-requisite courses. All writing must be in English. The primary motivation for having students write three papers as the main assessment for the course is to give them the opportunity to create a public portfolio of work they can use to apply for jobs.
 
@@ -100,7 +97,7 @@ Data cleaning and analysis was done using the `R` statistical programming langua
 `janitor` [@janitor], 
 `readxl` [@readxl], and 
 `tidyverse` [@tidyverse] 
-packages.
+packages. Our code and data are available in a fair, permanent and anonymized repository detailed in [Appendix -@sec-data-availability].
 
 ## Survey data
 
@@ -514,8 +511,6 @@ sta304_data |>
   theme(axis.text.y = element_blank(), legend.position = "bottom")
 ```
 
-
-
 One question asked students to elaborate on whether they thought generative AI tools such as ChatGPT were ethical and appropriate for schoolwork. This was an open-response question. To provide a sense of the responses from STA302, we used Anthropic's Claude 3.5 Sonnet model (as at 5 August 2024) to summarize the comments and it provided:
 
 > Many respondents view AI as a helpful supplementary tool, comparing it to resources like Google or calculators. They believe it can aid in understanding concepts, debugging code, brainstorming ideas, and saving time on routine tasks. However, there's a consensus that AI should not be used to complete entire assignments or replace original thinking. Respondents emphasize the importance of using AI ethically, citing it when appropriate, and not relying on it exclusively. Some argue that learning to use AI effectively is a valuable skill for future careers. Concerns raised include the potential for plagiarism, the risk of hindering critical thinking skills, and the possibility of receiving incorrect information. Overall, most respondents support the responsible use of AI in education, with proper guidelines and transparency, while recognizing the need to maintain academic integrity and develop independent learning skills.
@@ -705,7 +700,7 @@ Our main model specification is:
 
 
 We estimate the model and explore the results using the statistical programming language `R` [@citeR] and the 
-`brms` [@brms] package. Our code to adjust for the fact that there were no students who got zero follows @buerkner, @Heiss2021 and @andrewagain. Model diagnostics are included in [Appendix -@sec-model-details]. 
+`brms` [@brms] package. Our code to adjust for the fact that there were no students who got zero follows @buerkner, @Heiss2021 and @andrewagain. Model diagnostics are included in the repository detailed in [Appendix -@sec-data-availability].
 
 Another approach for dealing with our particular situation (in which there are exact ones) could have been to slightly perturb the data by changing all the ones to 0.99. In our case, that would likely have been defendable as there is not much difference between getting 99 per cent on a paper and getting 100 per cent. When we estimated that perturbed data model using beta regression the results were similar to that of our one-inflated model. We nonetheless report the one-inflated beta regression in @sec-results as they avoid manipulating the data.
 
@@ -897,23 +892,23 @@ Looking at the logs of the student interactions with the LLM, students are also 
 
 Finally, there is the question of whether the nature of data science has fundamentally changed or improved. When marking papers certain substantial differences in style made it clear when a student had just used LLM-generated text without modification, and it was often clear when large amounts of code had been written by an LLM. But it was not obvious when small amounts of either had been used, or when LLM-generated content had just been used as an initial draft. As LLMs continue to develop, more thought will be needed about what are the core skills that a data scientist needs and how they should be taught and assessed.
 
-## General purpose compared with opinionated specific chatbots
+<!-- ## General purpose compared with opinionated specific chatbots -->
 
-ChatGPT and equivalents are general-purpose chatbots. One can ask them a technical data science question and then in the same session ask for a brownie recipe! This general-purpose nature means that they are not optimized toward one particular task [@thoppilan2022lamda]. When used for data science, this means that sometimes the functions or libraries recommended may not exist, code may not run, or outdated approaches may be used. Frontier models make things up and are unnervingly confident, even when wrong [@openai2023gpt4, p. 59], which can create special issues for learners.
+<!-- ChatGPT and equivalents are general-purpose chatbots. One can ask them a technical data science question and then in the same session ask for a brownie recipe! This general-purpose nature means that they are not optimized toward one particular task [@thoppilan2022lamda]. When used for data science, this means that sometimes the functions or libraries recommended may not exist, code may not run, or outdated approaches may be used. Frontier models make things up and are unnervingly confident, even when wrong [@openai2023gpt4, p. 59], which can create special issues for learners. -->
 
-Using general-purpose chatbots for data science may be fine for experienced data scientists who have an established sense of when something might be not ideal or even wrong. But it may be problematic for novices who may not know, can lack the confidence to push back, and possibly, may learn the wrong approach.
+<!-- Using general-purpose chatbots for data science may be fine for experienced data scientists who have an established sense of when something might be not ideal or even wrong. But it may be problematic for novices who may not know, can lack the confidence to push back, and possibly, may learn the wrong approach. -->
 
-The use of Retrieval Augmented Generation (RAG) or fine-tuning could help address this. RAG means providing various sources, for instance books or technical manuals, which the LLM bases its response on [@Lewis2020RAG]. Fine-tuning means providing the previously trained LLM with a large number of example input and outputs, which again guide the response from the LLM [@raffel2020exploring; @fan2024survey]. A chatbot-based interface, focused on the needs of data science beginners, could use RAG and/or fine-tuning to improve the quality of its responses with respect to the topic of data science. The trade-off would be a reduction in the general-purpose usability of the chatbot. In the context of statistics and data science education, such a trade-off is likely acceptable. However, such specialized approaches could lead to concerns about equality of access.
+<!-- The use of Retrieval Augmented Generation (RAG) or fine-tuning could help address this. RAG means providing various sources, for instance books or technical manuals, which the LLM bases its response on [@Lewis2020RAG]. Fine-tuning means providing the previously trained LLM with a large number of example input and outputs, which again guide the response from the LLM [@raffel2020exploring; @fan2024survey]. A chatbot-based interface, focused on the needs of data science beginners, could use RAG and/or fine-tuning to improve the quality of its responses with respect to the topic of data science. The trade-off would be a reduction in the general-purpose usability of the chatbot. In the context of statistics and data science education, such a trade-off is likely acceptable. However, such specialized approaches could lead to concerns about equality of access. -->
 
 ## Changed LLM-based interfaces
 
 LLMs existed before OpenAI's ChatGPT, but it was the launch of ChatGPT that brought them into the mainstream. The underlying model was not considerably different to the preceding OpenAI model, and the main difference that ChatGPT brought was the chat interaction. As of April 2025, the conversational approach remains a popular way to interact with LLMs, but there is considerable opportunity to develop additional ways of interacting with LLMs that are more tailored to distinct applications, like that of data science. This is particularly relevant for enhancing trustworthy data science, where reproducibility and documented integrity in the data-scientific process are important. 
 
-Students in both STA302 and STA304 were required to use GitHub to host their papers, code, and data. GitHub Issues and Pull Requests were used for peer review and submission occurred by submitting a link to a GitHub repository. Trustworthy data science could be considerably enhanced by establishing something analogous to continuous integration and a suite of tests, but for data science. The one-off nature of much data science code would mean that LLMs could be especially useful in this proposed infrastructure stack; for instance, when a data scientist commits their code or writing, a suite of static tests could run. These could check small aspect such as that the data are being read in and that classes are appropriate. But additionally LLMs could be used to check for larger aspects such as writing improvements, context-specific code improvements, and consistency between the code and the paper.
+Students in both STA302 and STA304 were required to use GitHub to host their papers, code, and data. GitHub Issues and Pull Requests were used for peer review and submission occurred by submitting a link to a GitHub repository. Trustworthy data science could be considerably enhanced by establishing something analogous to continuous integration and a suite of tests, but for data science. The one-off nature of much data science code would mean that LLMs could be especially useful in this proposed infrastructure stack; for instance, when a data scientist commits their code or writing, a suite of static tests could run. These could check small aspects such as that the data are being read in and that classes are appropriate. But additionally LLMs could be used to check for larger aspects such as writing improvements, context-specific code improvements, and consistency between the code and the paper.
 
-A recent LLM development is that of "Agentic AI", enabled through tool use. Many prominent research firms, including OpenAI, Google DeepMind, and Anthropic have incorporated at least some autonomous (i.e. agentic) capabilities within, or alongside, their chatbots. With recent advances in LLM-based "reasoning", such as OpenAI's o-series models [@openai2024o1], these tools can autonomously create strategies for data analysis, analyze datasets, compute and analyze basic statistics, choose and compute models and criticize their assumptions. There is potential for the significant automation of large parts of the data science workflow. 
+<!-- A recent LLM development is that of "Agentic AI", enabled through tool use. Many prominent research firms, including OpenAI, Google DeepMind, and Anthropic have incorporated at least some autonomous (i.e. agentic) capabilities within, or alongside, their chatbots. With recent advances in LLM-based "reasoning", such as OpenAI's o-series models [@openai2024o1], these tools can autonomously create strategies for data analysis, analyze datasets, compute and analyze basic statistics, choose and compute models and criticize their assumptions. There is potential for the significant automation of large parts of the data science workflow.  -->
 
-Tool use means that LLMs can use R and Python to respond to queries about a dataset. Further development in this regard could be useful. For instance, when a user writes code in an IDE to import some data, a tool-enhanced LLM could notice and automatically write code that establishes a validation model for that data. Similarly, consider an LLM in an IDE context where a data scientist wrote out the model, in statistical notation, that they were interested in estimating, and the LLM was able write the model in Stan, run it, save the estimates, and add a summary table to the paper, all automatically and in the background. Similar work has occurred in other contexts and found to bring substantial benefits [@chen2022evaluating]. 
+<!-- Tool use means that LLMs can use R and Python to respond to queries about a dataset. Further development in this regard could be useful. For instance, when a user writes code in an IDE to import some data, a tool-enhanced LLM could notice and automatically write code that establishes a validation model for that data. Similarly, consider an LLM in an IDE context where a data scientist wrote out the model, in statistical notation, that they were interested in estimating, and the LLM was able write the model in Stan, run it, save the estimates, and add a summary table to the paper, all automatically and in the background. Similar work has occurred in other contexts and found to bring substantial benefits [@chen2022evaluating].  -->
 
 ## Weaknesses and next steps
 
@@ -932,6 +927,21 @@ Despite these shortcomings, our work clearly identifies a need for further resea
 \appendix
 
 # Appendix {.unnumbered}
+
+# Acknowledgements {#sec-acknowledgements}
+
+We thank participants at JSM 2024 for helpful suggestions.
+
+
+# Research Ethics Board {#sec-research-ethics}
+
+This research was approved by the University of Toronto's Research Ethics Board (Protocol 47725).
+
+
+# Data Availability Statement {#sec-data-availability}
+
+Code, data, and supporting material are available at: <https://osf.io/dpc3x/?view_only=35feac67f5614e6bbf8125bb6c9fbfb5> (DOI: 10.17605/OSF.IO/DPC3X). 
+
 
 # Survey questions {#sec-survey-details}
 
@@ -1000,19 +1010,20 @@ Despite these shortcomings, our work clearly identifies a need for further resea
 18. What is your recommendation for how generative AI tools such as ChatGPT by OpenAI (or equivalents) should be used in the course in future?
 19. (Optional) Any other comments?
 
-In STA304, students were additionally asked about whether they were an international student "Are you an international student?", whether English was their native language "Is English your native language (i.e. the language that you first spoke)?", and an attention check was included "Please select the option "Blue"".
+In STA304, students were additionally asked about whether they were an international student "Are you an international student?", whether English was their native language "Is English your native language (i.e. the language that you first spoke)?", and an attention check was included "Please select the option 'Blue'".
 
 
 \newpage
 
-# Model details {#sec-model-details}
+# Full model output  {#sec-model-output}
 
-## Full model output  {#sec-model-output}
+In @sec-results we focused on those respondents with less than full marks, but in @tbl-model-results-full and @fig-model-results-full we provide the full output.
 
 ```{r tbl-model-results-full}
 #| message: false
 #| echo: false
 #| warning: false
+#| tbl-pos: H
 #| tbl-cap: Coefficient estimates and mean absolute deviation (MAD) for five fitted models
 
 modelsummary(
@@ -1046,15 +1057,6 @@ modelsummary(
 ```
 
 
-
-
-
-
-
-\newpage
- 
-## Full coefficient estimates
-
 ```{r fig-model-results-full}
 #| message: false
 #| echo: false
@@ -1086,93 +1088,6 @@ modelplot(
   scale_color_brewer(palette = "Set1") +
   #theme(legend.position = "bottom") +
   scale_y_discrete(limits=rev)
-```
-
-\newpage
-
-## Posterior predictive check
-
-We use `bayesplot` [@bayesplot] and `loo` [@loo] conduct posterior predictive checks and evaluate model diagnostics.
-
-```{r fig-posteriorchecks}
-#| message: false
-#| echo: false
-#| warning: false
-#| fig-cap: Posterior predictive checking
-#| fig-subcap: ["Base model", "Including self-reported GPA"]
-#| layout-ncol: 2
-
-pp_check(fit1) +
-  theme_classic() +
-  theme(legend.position = "bottom")
-
-pp_check(fit2) +
-  theme_classic() +
-  theme(legend.position = "bottom")
-```
-
-```{r tbl-loo}
-#| message: false
-#| echo: false
-#| warning: false
-#| tbl-cap: Model comparison
-
-brms::loo_compare(loo::loo(fit1, cores = 2), loo::loo(fit2, cores = 2)) |>
-  kable(digits = 3)
-```
-
-\newpage
-
-## Diagnostics
-
-```{r fig-basemodeldiagnostics}
-#| fig-height: 7
-#| message: false
-#| echo: false
-#| warning: false
-#| fig-cap: Base model diagnostics 
-
-plot(fit1)
-```
-
-```{r fig-gpamodeldiagnostics}
-#| fig-height: 6
-#| message: false
-#| echo: false
-#| warning: false
-#| fig-cap: Model including self-reported GPA diagnostics 
-
-plot(fit2)
-```
-
-```{r fig-basemodel304diagnostics}
-#| fig-height: 7
-#| message: false
-#| echo: false
-#| warning: false
-#| fig-cap: Base model diagnostics (STA304)
-
-plot(fit3)
-```
-
-```{r fig-gpamodel304diagnostics}
-#| fig-height: 6
-#| message: false
-#| echo: false
-#| warning: false
-#| fig-cap: Model including self-reported GPA diagnostics (STA304)
-
-plot(fit4)
-```
-
-```{r fig-gpamodel304ESLdiagnostics}
-#| fig-height: 6
-#| message: false
-#| echo: false
-#| warning: false
-#| fig-cap: Model including self-reported GPA and ESL diagnostics (STA304)
-
-plot(fit5)
 ```
 
 \newpage

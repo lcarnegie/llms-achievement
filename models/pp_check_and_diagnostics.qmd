@@ -1,0 +1,138 @@
+---
+title: "Posterior predictive checks and diagnostics"
+author: 
+  - REDCATED
+  - REDCATED
+  - REDCATED
+date: today
+date-format: long
+format: pdf
+number-sections: true
+table-of-contents: false
+bibliography: references.bib
+---
+
+```{r setup}
+#| include: false
+
+library(arrow)
+library(here)
+library(knitr)
+library(tidyverse)
+library(scales)
+library(modelsummary)
+library(bayesplot)
+library(tidybayes)
+
+# Read in data
+all_data <-
+  read_parquet(here("data/analysis_data.parquet"))
+
+sta304_data <-
+  read_parquet(here("data/sta304_analysis_data_classified_cleaned.parquet"))
+
+# Read in models
+fit1 <-
+  readRDS(file = here("models/fit_one_inflated.rds"))
+fit2 <-
+  readRDS(file = here("models/fit_one_inflated_gpa.rds"))
+fit3 <-
+  readRDS(file = here("models/fit_one_inflated_sta304.rds"))
+fit4 <-
+  readRDS(file = here("models/fit_one_inflated_gpa_sta304.rds"))
+fit5 <-
+  readRDS(file = here("models/fit_one_inflated_gpa_english_sta304.rds"))
+fit6 <-
+  readRDS(file = here("models/fit_one_inflated_gpa_both.rds"))
+```
+
+
+# Posterior predictive check
+
+We use `bayesplot` [@bayesplot] and `loo` [@loo] conduct posterior predictive checks and evaluate model diagnostics.
+
+```{r fig-posteriorchecks}
+#| message: false
+#| echo: false
+#| warning: false
+#| fig-cap: Posterior predictive checking
+#| fig-subcap: ["Base model", "Including self-reported GPA"]
+#| layout-ncol: 2
+
+pp_check(fit1) +
+  theme_classic() +
+  theme(legend.position = "bottom")
+
+pp_check(fit2) +
+  theme_classic() +
+  theme(legend.position = "bottom")
+```
+
+```{r tbl-loo}
+#| message: false
+#| echo: false
+#| warning: false
+#| tbl-cap: Model comparison
+
+brms::loo_compare(loo::loo(fit1, cores = 2), loo::loo(fit2, cores = 2)) |>
+  kable(digits = 3)
+```
+
+\newpage
+
+# Diagnostics
+
+```{r fig-basemodeldiagnostics}
+#| fig-height: 7
+#| message: false
+#| echo: false
+#| warning: false
+#| fig-cap: Base model diagnostics 
+
+plot(fit1)
+```
+
+```{r fig-gpamodeldiagnostics}
+#| fig-height: 6
+#| message: false
+#| echo: false
+#| warning: false
+#| fig-cap: Model including self-reported GPA diagnostics 
+
+plot(fit2)
+```
+
+```{r fig-basemodel304diagnostics}
+#| fig-height: 7
+#| message: false
+#| echo: false
+#| warning: false
+#| fig-cap: Base model diagnostics (STA304)
+
+plot(fit3)
+```
+
+```{r fig-gpamodel304diagnostics}
+#| fig-height: 6
+#| message: false
+#| echo: false
+#| warning: false
+#| fig-cap: Model including self-reported GPA diagnostics (STA304)
+
+plot(fit4)
+```
+
+```{r fig-gpamodel304ESLdiagnostics}
+#| fig-height: 6
+#| message: false
+#| echo: false
+#| warning: false
+#| fig-cap: Model including self-reported GPA and ESL diagnostics (STA304)
+
+plot(fit5)
+```
+
+\newpage
+
+
+# References

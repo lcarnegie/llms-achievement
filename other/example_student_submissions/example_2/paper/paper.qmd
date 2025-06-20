@@ -1,0 +1,614 @@
+---
+title: "Evidence of Racial Profiling by the Austin Police Department in 2020"
+author: 
+  - 
+thanks: "Data and code employed in the creation of this report can be found here: <>"
+date: 04-18-2024
+date-format: long
+abstract: "This report investigated the City of Austin, Texas '2020 Racial Profiling (RP) dataset' and a Bayesian logistic regression model was created to assess the effect of an individual's sex, race, and whether a search was performed on the probability of undergoing a custody arrest. This analysis suggested that, in part, approximately 46%, 32%, and 21% of individuals arrested were Hispanic or Latino, White, and Black, respectively, and that Hawaiian/Pacific Islander and American Indian/Alaskan Native individuals in this dataset had a greater likelihood of undergoing a custody arrest relative to a White individual. These findings signify that Hispanic or Latino and Black individuals were overrepresented among the arrests in this dataset and that the impacts of policing on Hawaiian/Pacific Islander and American Indian/Alaskan Native individuals should be examined in greater detail in the United States. Future research could examine combinations of predictors or whether custody arrests are associated with other factors, such as geographical location and income level."
+format: pdf
+number-sections: true
+# This table of contents parameter was obtained from:
+# https://quarto.org/docs/reference/formats/pdf.html
+toc: true
+bibliography: references.bib
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+#### Preamble ####
+
+# Purpose: Writing a report based on the City of Austin, Texas
+# "2020 Racial Profiling (RP) dataset" (Austin Police Department 2023a).
+# Author: 
+# Date: April 18, 2024
+# Contact: 
+# Pre-requisites: Installation of the tidyverse (Wickham et al. 2019),
+# here (Müller 2020), rstanarm (Goodrich et al. 2024),
+# arrow (Richardson et al. 2024), modelsummary (Arel-Bundock 2022),
+# and lintr (Hester et al. 2024) packages. Running of the files titled
+# "01-download_data.R", "02-data_cleaning.R", and "04-model.R".
+```
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+#### Load Packages ####
+
+# Installation of tidyverse: install.packages("tidyverse")
+# Installation of here: install.packages("here")
+# Installation of rstanarm: install.packages("rstanarm")
+# This method of installing the arrow package was obtained from:
+# https://github.com/apache/arrow/issues/41050
+# Installation of arrow: install.packages("arrow",
+#                                         repos =
+#                                         c("https://apache.r-universe.dev"))
+# Installation of modelsummary: install.packages("modelsummary")
+# Installation of lintr: install.packages("lintr")
+library(tidyverse)
+library(here)
+library(rstanarm)
+library(arrow)
+library(modelsummary)
+library(lintr)
+```
+
+# Introduction {#sec-introduction}
+
+The term "racial profiling" describes race- or skin colour-based, instead of evidence-based, suspicion by those such as police officers that a crime was carried out by an individual [@racialprofilingdefinition]. For example, based on law enforcement data, it has been reported that the Black and Hispanic populations in California, United States experience racial profiling [@california]. Racial profiling has far-reaching consequences; for instance, it has been reported as being possibly detrimental to health and may give rise to post-traumatic stress disorder [@racialprofilinghealth]. Trust between community and police has also been reported as being put under pressure by profiling [@trust].
+
+Custody arrests from UT (or University of Texas; @universityoftexas) police motor vehicle stops have been previously examined [@ut]. Also, possession of marijuana-related custody arrests by the APD (or the Austin Police Department; @apd) have been reported to predominantly comprise Hispanic and African American individuals (based on @marijuana). However, the relationship between race and APD custody arrests as a whole does not appear to have been examined in detail. Consequently, this report analyzes the City of Austin, Texas "2020 Racial Profiling (RP) dataset" [@profilingdata] to model the effect of an individual's sex, race, and whether a search was performed on the probability of undergoing a custody arrest. That is, the true effects of sex, race, and whether a search was performed on the outcome of experiencing a custody arrest represent the estimand in this analysis (based on @tellingstorieswithdata).
+
+This report investigated the City of Austin, Texas "2020 Racial Profiling (RP) dataset" [@profilingdata], as described in @sec-data. To model the effect of an individual's sex, race, and whether a search was performed on the probability of undergoing a custody arrest, a Bayesian logistic regression model was created (@sec-model). This analysis suggested that, in part, approximately 46\%, 32\%, and 21\% of individuals arrested were Hispanic or Latino, White, and Black, respectively (@sec-data), and that Hawaiian/Pacific Islander and American Indian/Alaskan Native individuals in this dataset had a greater likelihood of undergoing a custody arrest relative to a White individual (based on @tellingstorieswithdata and @intercept; @sec-results and @sec-appendix). These findings signify that Hispanic or Latino and Black individuals were overrepresented among the arrests in this dataset and that the impacts of policing on Hawaiian/Pacific Islander and American Indian/Alaskan Native individuals should be examined in greater detail in the United States (@sec-discussion). Also, the dataset [@profilingdata] could be used for a future geographical analysis of custody arrests to examine whether certain areas are over-policed or more racially profiled. Furthermore, future research could assess whether there is a relationship between the prevalence of custody arrests and socioeconomic factors such as income level, and combinations of predictors could be employed rather than individual predictors.
+
+Overall, this paper includes @sec-data (which contains an overview of the dataset and the variables employed in this analysis), @sec-model (which describes and justifies the model produced in this report), @sec-results (which includes the results of the model), @sec-discussion (where outcomes of this investigation, weaknesses, and next steps are discussed), and @sec-appendix (which includes additional information such as model details).
+
+# Data {#sec-data}
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+
+# Loading the cleaned dataset
+cleaned_profiling_data <-
+  read_parquet(here::here("data/analysis_data/cleaned_profiling_data.parquet"))
+```
+
+In this report, the City of Austin, Texas "2020 Racial Profiling (RP) dataset" will be analyzed [@profilingdata]. This dataset comprises 68,552 entries [@profilingdatatable] on 2020 Austin Police Department traffic stop-based arrests, warnings or field observations, and citations [@profilingdata]. This indicates how the variables were measured for storage in this dataset. In addition, this dataset was made available on the City of Austin's Open Data Portal, which is run by the Communications and Technology Management Department's Open Data Team [@opendataportal]. The City of Austin's Open Data Portal's website indicates that public data usage is supported in part to make the government more transparent [@opendataportal].
+
+This analysis will focus on the following variables from this dataset [@profilingdata]: 1) "TCOLE Sex", which includes classifications of female and male; 2) "Standardized Race", which separates "Asian" from "Hawaiian-Pacific Islander" and "Middle Eastern"; 3) "Search Yes or No", which indicates whether a search was performed; and 4) "Custody", which is only applicable to arrest stops and states whether an arrest was non-custody or custody in nature [@profilingdataguide].
+
+One similar dataset was the City of Toronto "Police Race and Identity Based Data - Use of Force" dataset [@torontodataset]. However, with respect to data analysis based on race, the description of this dataset indicates that the data does not include routine traffic stops [@torontodataset]. Consequently, this dataset was not employed in this report.
+
+The data was downloaded using the R programming language [@citeR] as well as the `tidyverse` package [@citetidyverse]. Next, the data was cleaned with the R programming language [@citeR] as well as the `tidyverse` [@citetidyverse] and `arrow` [@citearrow] packages. The cleaning process also involved creating variables that denoted whether someone was male, female, Asian, Black, White, Hawaiian/Pacific Islander, Middle Eastern, Hispanic or Latino, or American Indian/Alaskan Native as well as variables that signified whether a search was performed and whether an arrest was non-custody or custody in nature. Afterward, the data was loaded using the R programming language [@citeR] as well as the `arrow` [@citearrow] and `here` [@citehere] packages. To generate the graphs in @sec-data, the R programming language [@citeR] as well as the `tidyverse` package [@citetidyverse] were employed. Summary statistics (i.e., percentages) are shown in several of these graphs, and these graphs illustrate the variables and observations to be analyzed.
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| label: fig-sex
+#| fig-cap: "Sexes of those arrested from 2020 traffic stops by the APD"
+
+# Portions of the code below were adapted from   (2023).
+
+# Making a table to include the sexes and their respective percentages
+fig_sex_table <- tibble(
+                        sex = c("Female", "Male"),
+                        percentage =
+                          round((100 * c(mean(cleaned_profiling_data$female),
+                                         mean(cleaned_profiling_data$male))),
+                                2))
+
+# Making labels for the graph
+fig_sex_labels <- paste(
+                        fig_sex_table$percentage, "%", sep = "")
+
+# Placing the labels in the table
+fig_sex_table <- fig_sex_table |>
+  mutate(label = fig_sex_labels)
+
+# Making a graph
+fig_sex <-
+  ggplot(mapping = aes(x = reorder(fig_sex_table$sex, fig_sex_table$percentage,
+                                   decreasing = TRUE),
+                       y = fig_sex_table$percentage)) +
+  geom_col(fill = "orange") +
+  theme_classic() +
+  labs(x = "Sex", y = "Percentage") +
+  coord_flip() +
+  # The function "geom_text", which is employed in placing the labels on the
+  # graph, was obtained from R Graphics Cookbook:
+  # https://r-graphics.org/recipe-bar-graph-labels
+  # The argument "hjust", which is employed in aligning the graph labels,
+  # was obtained from the website of Cédric Scherer:
+  # https://www.cedricscherer.com/2021/07/05/a-quick-how-to-on-labelling-bar-
+  # graphs-in-ggplot2/
+  geom_text(aes(label = fig_sex_table$label),
+            hjust = c(0, 0),
+            colour = "black",
+            size = 4) +
+  # The function "expand_limits", which is employed in changing the percentage
+  # axis' scale's upper limit, was obtained from the website of
+  # tidyverse ggplot2:
+  # https://ggplot2.tidyverse.org/reference/expand_limits.html
+  expand_limits(y = 85)
+
+# Showing the created graph
+fig_sex
+```
+
+@fig-sex depicts that approximately 76\% of individuals arrested based on traffic stops by the Austin Police Department in 2020 were male, while approximately 24\% were female.
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| label: fig-race
+#| fig-cap: "Races of those arrested from 2020 traffic stops by the APD"
+
+# Portions of the code below were adapted from   (2023).
+
+# Making a table to include the races and their respective percentages
+fig_race_table <- tibble(
+                         race = c("Asian",
+                                  "Middle Eastern",
+                                  "Black",
+                                  "Hispanic or Latino",
+                                  "White",
+                                  "American Indian/Alaskan Native",
+                                  "Hawaiian/Pacific Islander"),
+                         percentage =
+                           round((
+                                  100 *
+                                    c(
+                                      mean(cleaned_profiling_data$asian),
+                                      mean(cleaned_profiling_data$
+                                             middle_eastern),
+                                      mean(cleaned_profiling_data$black),
+                                      mean(cleaned_profiling_data$
+                                             hispanic_or_latino),
+                                      mean(cleaned_profiling_data$white),
+                                      mean(cleaned_profiling_data$
+                                             american_indian_or_alaskan_native),
+                                      mean(cleaned_profiling_data$
+                                             hawaiian_or_pacific_islander))),
+                           2))
+
+# Making labels for the graph
+fig_race_labels <- paste(
+                         fig_race_table$percentage, "%", sep = "")
+
+# Placing the labels in the table
+fig_race_table <- fig_race_table |>
+  mutate(label = fig_race_labels)
+
+# Making a graph
+fig_race <-
+  ggplot(mapping = aes(x = reorder(fig_race_table$race,
+                                   fig_race_table$percentage,
+                                   decreasing = TRUE),
+                       y = fig_race_table$percentage)) +
+  geom_col(fill = "lightblue") +
+  theme_classic() +
+  labs(x = "Race", y = "Percentage") +
+  coord_flip() +
+  # The function "geom_text", which is employed in placing the labels on the
+  # graph, was obtained from R Graphics Cookbook:
+  # https://r-graphics.org/recipe-bar-graph-labels
+  # The argument "hjust", which is employed in aligning the graph labels,
+  # was obtained from the website of Cédric Scherer:
+  # https://www.cedricscherer.com/2021/07/05/a-quick-how-to-on-labelling-bar-
+  # graphs-in-ggplot2/
+  geom_text(aes(label = fig_race_table$label),
+            hjust = c(0, 0, 0, 0, 0, 0, 0),
+            colour = "black",
+            size = 4) +
+  # The function "expand_limits", which is employed in changing the percentage
+  # axis' scale's upper limit, was obtained from the website of
+  # tidyverse ggplot2:
+  # https://ggplot2.tidyverse.org/reference/expand_limits.html
+  expand_limits(y = 60)
+
+# Showing the created graph
+fig_race
+```
+
+@fig-race illustrates the races of individuals arrested based on traffic stops by the Austin Police Department in 2020. Approximately 46\% of individuals arrested were Hispanic or Latino, followed by White (approximately 32\%), Black (approximately 21\%), Asian (approximately 1\%), and Middle Eastern, Hawaiian/Pacific Islander, or American Indian/Alaskan Native (less than 0.5\% combined).
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| label: fig-search
+#| fig-cap: "Searches of those arrested from 2020 traffic stops by the APD"
+
+# Portions of the code below were adapted from   (2023).
+
+# Making a table to include the search statuses and their respective percentages
+fig_search_table <- tibble(
+                           search = c("No", "Yes"),
+                           percentage =
+                             round((100 *
+                                      c(1 - mean(cleaned_profiling_data$
+                                                   search_binary),
+                                        mean(cleaned_profiling_data$
+                                               search_binary))),
+                                   2))
+
+# Making labels for the graph
+fig_search_labels <- paste(
+                           fig_search_table$percentage, "%", sep = "")
+
+# Placing the labels in the table
+fig_search_table <- fig_search_table |>
+  mutate(label = fig_search_labels)
+
+# Making a graph
+fig_search <-
+  ggplot(mapping = aes(x = reorder(fig_search_table$search,
+                                   fig_search_table$percentage,
+                                   decreasing = TRUE),
+                       y = fig_search_table$percentage)) +
+  geom_col(fill = "lightgrey") +
+  theme_classic() +
+  labs(x = "Search performed", y = "Percentage") +
+  coord_flip() +
+  # The function "geom_text", which is employed in placing the labels on the
+  # graph, was obtained from R Graphics Cookbook:
+  # https://r-graphics.org/recipe-bar-graph-labels
+  # The argument "hjust", which is employed in aligning the graph labels,
+  # was obtained from the website of Cédric Scherer:
+  # https://www.cedricscherer.com/2021/07/05/a-quick-how-to-on-labelling-bar-
+  # graphs-in-ggplot2/
+  geom_text(aes(label = fig_search_table$label),
+            hjust = c(0, 0),
+            colour = "black",
+            size = 4) +
+  # The function "expand_limits", which is employed in changing the percentage
+  # axis' scale's upper limit, was obtained from the website of
+  # tidyverse ggplot2:
+  # https://ggplot2.tidyverse.org/reference/expand_limits.html
+  expand_limits(y = 100)
+
+# Showing the created graph
+fig_search
+```
+
+@fig-search shows that a search was performed for approximately 89\% of individuals arrested based on traffic stops by the Austin Police Department in 2020. Conversely, a search was not performed for approximately 11\% of individuals arrested.
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| label: fig-custody
+#| fig-cap: "Arrest form from 2020 traffic stops by the APD"
+
+# Portions of the code below were adapted from   (2023).
+
+# Making a table to include the arrest forms and their respective percentages
+fig_custody_table <- tibble(
+                            custody = c("Non-Custody", "Custody"),
+                            percentage =
+                              round((100 *
+                                       c(1 - mean(cleaned_profiling_data$
+                                                    custody_binary),
+                                         mean(cleaned_profiling_data$
+                                                custody_binary))),
+                                    2))
+
+# Making labels for the graph
+fig_custody_labels <- paste(
+                            fig_custody_table$percentage, "%", sep = "")
+
+# Placing the labels in the table
+fig_custody_table <- fig_custody_table |>
+  mutate(label = fig_custody_labels)
+
+# Making a graph
+fig_custody <-
+  ggplot(mapping = aes(x = reorder(fig_custody_table$custody,
+                                   fig_custody_table$percentage,
+                                   decreasing = TRUE),
+                       y = fig_custody_table$percentage)) +
+  geom_col(fill = "pink") +
+  theme_classic() +
+  labs(x = "Arrest form", y = "Percentage") +
+  coord_flip() +
+  # The function "geom_text", which is employed in placing the labels on the
+  # graph, was obtained from R Graphics Cookbook:
+  # https://r-graphics.org/recipe-bar-graph-labels
+  # The argument "hjust", which is employed in aligning the graph labels,
+  # was obtained from the website of Cédric Scherer:
+  # https://www.cedricscherer.com/2021/07/05/a-quick-how-to-on-labelling-bar-
+  # graphs-in-ggplot2/
+  geom_text(aes(label = fig_custody_table$label),
+            hjust = c(0, 0),
+            colour = "black",
+            size = 4) +
+  # The function "expand_limits", which is employed in changing the percentage
+  # axis' scale's upper limit, was obtained from the website of
+  # tidyverse ggplot2:
+  # https://ggplot2.tidyverse.org/reference/expand_limits.html
+  expand_limits(y = 100)
+
+# Showing the created graph
+fig_custody
+```
+
+@fig-custody illustrates that approximately 90\% of individuals arrested based on traffic stops by the Austin Police Department in 2020 experienced a custody arrest, while approximately 10\% experienced a non-custody arrest.
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| label: fig-custody-sex-race
+#| fig-cap: "Arrest form from 2020 traffic stops by the APD by sex and race"
+
+# The code below was adapted from   (2023).
+
+cleaned_profiling_data |>
+  ggplot(aes(x = race, fill = custody)) +
+  stat_count(position = "dodge") +
+  facet_wrap(facets = vars(sex)) +
+  theme_minimal() +
+  labs(
+    x = "Race",
+    y = "Number of arrested individuals",
+    fill = "Arrest form"
+  ) +
+  coord_flip() +
+  scale_fill_brewer(palette = "Set1") +
+  theme(legend.position = "bottom")
+```
+
+Using code adapted from @tellingstorieswithdata, @fig-custody-sex-race was created. @fig-custody-sex-race depicts the arrest form of individuals arrested based on traffic stops by the Austin Police Department in 2020 by sex and race. It appears that among females, custody arrests were most prevalent among White individuals, followed by Hispanic or Latino individuals and Black individuals. Conversely, among males, custody arrests were most prevalent among Hispanic or Latino individuals, followed by White individuals and Black individuals.
+
+# Model {#sec-model}
+
+In order to gain insight into potential racial profiling based on 2020 Austin Police Department traffic stop-based arrests [@profilingdata], a model was created. In particular, this model involved logistic regression, which was suitable because the outcome variable of interest (i.e., whether or not an individual underwent a custody arrest) was binary in nature [@tellingstorieswithdata]. Also, this model was Bayesian, meaning that the model parameters follow probability distributions [@tellingstorieswithdata]. A prior or initial probability distribution must be chosen for the parameters in advance of a Bayesian regression [@tellingstorieswithdata]; the priors used in this model are described in @sec-model-set-up.
+
+## Model set-up {#sec-model-set-up}
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+
+# This method of labelling and referencing equations was adapted from:
+# https://github.com/quarto-dev/quarto-cli/issues/2275
+```
+
+\begin{align}
+y_i|\pi_i &\sim \mbox{Bern}(\pi_i) \label{eq1} \\
+\mbox{logit}(\pi_i) &= \beta_0 + \beta_1 \times \mbox{sex}_i + \beta_2 \times \mbox{race}_i + \beta_3 \times \mbox{search}_i \label{eq2} \\
+\beta_0 &\sim \mbox{Normal}(0, 2.5) \label{eq3} \\
+\beta_1 &\sim \mbox{Normal}(0, 2.5) \label{eq4} \\
+\beta_2 &\sim \mbox{Normal}(0, 2.5) \label{eq5} \\
+\beta_3 &\sim \mbox{Normal}(0, 2.5) \label{eq6}
+\end{align}
+
+The Bayesian logistic regression model is represented by Equations \ref{eq1}, \ref{eq2}, \ref{eq3}, \ref{eq4}, \ref{eq5}, and \ref{eq6} (adapted from @tellingstorieswithdata). In these equations, $y_i$ represents the individual's arrest form (i.e., 0 for a non-custody arrest or 1 for a custody arrest; based on @tellingstorieswithdata), $\pi_i$ represents the probability of the $i$th observation being a custody arrest (based on @tellingstorieswithdata), $\beta_0$ represents the intercept (or the log-odds of a custody arrest for a female, White, non-searched individual; based on @intercept), $\beta_1$ represents how much the log-odds of a custody arrest change on average depending on the sex of the individual (relative to a female individual; based on @tellingstorieswithdata and @intercept), $\mbox{sex}_i$ represents the sex of the $i$th individual (based on @tellingstorieswithdata), $\beta_2$ represents how much the log-odds of a custody arrest change on average depending on the race of the individual (relative to a White individual; based on @tellingstorieswithdata and @intercept), $\mbox{race}_i$ represents the race of the $i$th individual (based on @tellingstorieswithdata), $\beta_3$ represents how much the log-odds of a custody arrest change on average depending on whether a search was performed (relative to a non-searched individual; based on @tellingstorieswithdata and @intercept), and $\mbox{search}_i$ represents the search status of the $i$th individual (i.e., whether or not a search was performed; based on @tellingstorieswithdata).
+
+Given the above description, the $\beta$ coefficients are important because they can yield insight regarding the effect of an individual's sex, race, and search status on their likelihood of experiencing a custody arrest.
+
+## Model justification {#sec-model-justification}
+
+As described previously, logistic regression was used because the outcome variable of interest (i.e., whether or not an individual experienced a custody arrest) was binary in nature [@tellingstorieswithdata]. Given that a higher percentage of Black men than Black women have been reported as experiencing unfair police stopping due to their ethnicity or race [@blackmen], individuals' race and sex were included in this model. In addition, from an intuitive perspective, the occurrence of a search may increase the likelihood of a custody arrest, so a positive coefficient may be expected for a search status of "Yes" [@profilingdata]. One weakness of this model is that certain variables, such as the ages of the individuals under arrest, were not provided [@profilingdata]. This could have potentially been a useful addition to the model as it may have offered further insight into the factors that are linked to a higher likelihood of experiencing a custody arrest. Additional weaknesses of this analysis are explored in @sec-weaknesses.
+
+With respect to alternative potential models, linear regression was not used because it can produce outcomes that lie outside the range in between the numbers 0 and 1 (i.e., outside of the possible values of a probability; based on @tellingstorieswithdata). In addition, Poisson regression was not employed because the outcome variable of interest (i.e., whether or not an individual experienced a custody arrest) is not an integer count variable [@tellingstorieswithdata].
+
+The `rstanarm` package [@citerstanarm] and the R programming language [@citeR] were employed in order to run this model. The `rstanarm` [@citerstanarm] default priors were utilized and are reflected in Equations \ref{eq3}, \ref{eq4}, \ref{eq5}, and \ref{eq6}. Using the data as a foundation, the `rstanarm` package [@citerstanarm] scaled the priors [@tellingstorieswithdata]. @sec-model-details contains a posterior predictive check and diagnostics for this model [@tellingstorieswithdata].
+
+# Results {#sec-results}
+
+With the help of code adapted from @tellingstorieswithdata, the `modelsummary` package [@citemodelsummary] was used to create @tbl-model, @fig-credibility-intervals-all, and @fig-credibility-intervals-several. @tbl-model displays a summary of the results of this model, and @fig-credibility-intervals-all and @fig-credibility-intervals-several depict 90\% credibility intervals of predictors of undergoing a custody arrest based on the model from this report.
+
+This model's results indicate that the intercept ($\beta_0$) is positive (i.e., the 90\% credibility interval lies above 0 as per @fig-credibility-intervals-several), suggesting that the log-odds of a custody arrest for a female, White, non-searched individual (based on @intercept) are positive according to this dataset. In addition, the male sex coefficient's 90\% credibility interval includes 0 (@fig-credibility-intervals-several), so there does not appear to be a link between being male and a higher or lower likelihood of experiencing a custody arrest as per this dataset. Similarly, the Asian race coefficient's 90\% credibility interval includes 0 (@fig-credibility-intervals-several), so there does not appear to be an association between being Asian and a greater or smaller likelihood of undergoing a custody arrest according to this dataset.
+
+Moreover, the Black, Middle Eastern, and Hispanic or Latino race coefficients' 90\% credibility intervals lie below 0 (@fig-credibility-intervals-several), suggesting that Black, Middle Eastern, and Hispanic or Latino individuals in this dataset had a lower likelihood of experiencing a custody arrest relative to a White individual (based on @tellingstorieswithdata and @intercept). Conversely, the Hawaiian/Pacific Islander and American Indian/Alaskan Native race coefficients' 90\% credibility intervals lie substantially above 0 (@fig-credibility-intervals-all), indicating that Hawaiian/Pacific Islander and American Indian/Alaskan Native individuals in this dataset had a greater likelihood of undergoing a custody arrest relative to a White individual (based on @tellingstorieswithdata and @intercept).
+
+Furthermore, the 90\% credibility interval for the coefficient of a search being performed lies above 0 (@fig-credibility-intervals-several), suggesting that the occurrence of a search was associated with a greater likelihood of experiencing a custody arrest.
+
+```{r}
+#| echo: false
+#| eval: true
+#| warning: false
+#| message: false
+
+# Loading the model
+profiling_model <-
+  readRDS(file = here::here("models/profiling_model.rds"))
+```
+
+```{r}
+#| echo: false
+#| eval: true
+#| warning: false
+#| label: tbl-model
+#| tbl-cap: "Modeling the likelihood of a person to undergo a custody arrest"
+
+# The code below was adapted from   (2023).
+
+modelsummary(
+  list(
+    "Undergo a custody arrest" = profiling_model
+  ),
+  statistic = "mad"
+)
+```
+
+# Discussion {#sec-discussion}
+
+This report analyzed the City of Austin, Texas "2020 Racial Profiling (RP) dataset" [@profilingdata] by graphing variables from the dataset (@sec-data) and using a Bayesian logistic regression model to examine predictors of undergoing a custody arrest (@sec-model and @sec-results). In particular, these predictors were an individual's sex, race, and whether a search was performed.
+
+## Hispanic or Latino and Black individuals were overrepresented among the arrests in this dataset {#sec-discussion-1}
+
+@sec-data and @fig-race revealed that approximately 46\% of individuals arrested based on traffic stops by the Austin Police Department in 2020 were Hispanic or Latino, followed by White (approximately 32\%), Black (approximately 21\%), Asian (approximately 1\%), Middle Eastern (approximately 0.32\%), Hawaiian/Pacific Islander (approximately 0.07\%), and American Indian/Alaskan Native (approximately 0.02\%).
+
+However, in 2020, the City of Austin, Texas was comprised of 47.1\% White, Non-Hispanic individuals, 32.5\% Hispanic or Latino individuals, 8.9\% Asian, Non-Hispanic individuals, 6.9\% Black or African American, Non-Hispanic individuals, 3.9\% Non-Hispanic individuals with two or more races, 0.2\% American Indian & Alaska
+Native, Non-Hispanic individuals, 0.1\% Native Hawaiian & Other Pacific Islander, Non-Hispanic individuals, and 0.5\% Non-Hispanic individuals with a different race [@austindemographics]. This suggests that White (approximately 32\% versus 47.1\%), Asian (approximately 1\% versus 8.9\%), Hawaiian/Pacific Islander (approximately 0.07\% versus 0.1\%), and American Indian/Alaskan Native (approximately 0.02\% versus 0.2\%) individuals were underrepresented in the arrest data compared to Austin at large, while Hispanic or Latino (approximately 46\% versus 32.5\%) and Black (approximately 21\% versus 6.9\%) individuals were overrepresented [@austindemographics].
+
+While racial profiling may be a factor in the overrepresentation of Hispanic or Latino and Black individuals among the arrests in this dataset, the dataset itself [@profilingdata] may not be completely accurate. For instance, the dataset's description states that "The data provided are for informational use only and may differ from official APD crime data" [@profilingdata], suggesting that this dataset may not be reflective of the true nature of 2020 Austin Police Department traffic stop-based arrests, warnings or field observations, and citations [@profilingdata]. Consequently, this overrepresentation may be a result of the data that ended up in the final dataset, which may or may not align with the true practices of the Austin Police Department.
+
+## Hawaiian/Pacific Islander and American Indian/Alaskan Native individuals in this dataset had a greater likelihood of undergoing a custody arrest relative to a White individual {#sec-discussion-2}
+
+The results of the logistic regression model employed in this report (@sec-model and @sec-results) suggested that Black, Middle Eastern, and Hispanic or Latino individuals in this dataset had a lower likelihood of experiencing a custody arrest relative to a White individual (based on @tellingstorieswithdata and @intercept), while Hawaiian/Pacific Islander and American Indian/Alaskan Native individuals in this dataset had a greater likelihood of undergoing a custody arrest relative to a White individual (based on @tellingstorieswithdata and @intercept).
+
+Although analysis of race and policing has appeared to emphasize the impacts on Black and Latino individuals (e.g., @lapd and @aclu), Indigenous people (such as Hawaiian/Pacific Islander and American Indian/Alaskan Native individuals) in the United States do not seem to be a primary focus. As a result, the greater likelihood of undergoing a custody arrest relative to a White individual (based on @tellingstorieswithdata and @intercept) among Hawaiian/Pacific Islander and American Indian/Alaskan Native individuals in this dataset suggests that the impacts of policing on these populations should be examined more closely in the United States.
+
+## Weaknesses {#sec-weaknesses}
+
+One weakness of this analysis was the possibility that the data in the dataset was not fully accurate. That is, the dataset's website states that "The data provided are for informational use only and may differ from official APD crime data" [@profilingdata]. In addition, the City of Austin's Open Data Portal's Terms of Use states that "THE CITY OF AUSTIN MAKES NO REPRESENTATIONS OR WARRANTY AS TO THE COMPLETENESS, ACCURACY, QUALITY, TIMELINESS,  CONTENT, OR ANY OTHER ASPECT OF ANY DATA MADE AVAILABLE THROUGH THIS SITE" [@termsofuse]. This suggests that the results obtained in this report may not fully reflect the true practices of the Austin Police Department.
+
+In addition, another weakness of this report is that combinations of predictors (e.g., Black males where a search was performed, White females where a search was not performed, etc.) were not incorporated into the logistic regression model. This could have provided more specific information about groups of factors that are associated with undergoing a custody arrest (e.g., American Indian/Alaskan Native males where a search was not performed), rather than the effects of individual variables (i.e., an individual's sex, race, and search status) on this outcome variable.
+
+## Next steps {#sec-next-steps}
+
+Future research could assess whether there is a relationship between the prevalence of custody arrests and socioeconomic factors such as income level. In addition, the dataset [@profilingdata] could be used for a geographical analysis of custody arrests, such as by zip code or county, for purposes such as examining whether certain areas are over-policed or more racially profiled. Additionally, a model could be constructed using combinations of predictors (e.g., Middle Eastern females where a search was not performed) rather than individual predictors (i.e., an individual's sex, race, and search status) to gain further insight into the factors that are associated with undergoing a custody arrest. Moreover, the impacts of policing on Hawaiian/Pacific Islander and American Indian/Alaskan Native individuals should be examined in greater detail in the United States to learn more about these particular populations, especially given the wide 90\% credibility intervals observed for these races in this report.
+
+\newpage
+
+\appendix
+
+# Appendix {#sec-appendix}
+
+## Sketches {#sec-sketches}
+
+Data, graph, and analysis sketches can be found in this report's GitHub Repository.
+
+## Simulation {#sec-simulation}
+
+A data simulation script can be found in this report's GitHub Repository and was created with the R programming language [@citeR] as well as the `tidyverse` [@citetidyverse] and `janitor` [@citejanitor] packages.
+
+## Tests {#sec-tests}
+
+Scripts with code used for testing can be found in this report's GitHub Repository. The R programming language [@citeR] as well as the `tidyverse` package [@citetidyverse] were used to test the real and simulated data.
+
+## Model details {#sec-model-details}
+
+### Posterior predictive check and comparison of the prior and posterior {#sec-ppc-comparison}
+
+Using code adapted from @tellingstorieswithdata, a posterior predictive check was performed (@fig-ppc). @fig-ppc illustrates a comparison between posterior distribution simulations and the actual probability of experiencing a custody arrest (based on @tellingstorieswithdata).
+
+```{r}
+#| eval: true
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fig-ppc
+#| fig-cap: "Posterior predictive check"
+
+# The code below was adapted from   (2023).
+
+pp_check(profiling_model) +
+  theme_classic() +
+  theme(legend.position = "bottom")
+```
+
+In addition, using code adapted from @tellingstorieswithdata, a comparison of the prior and posterior was performed (@fig-comparison). @fig-comparison depicts the amounts by which the estimates are modified after considering data [@tellingstorieswithdata].
+
+```{r}
+#| eval: true
+#| echo: false
+#| message: false
+#| warning: false
+#| label: fig-comparison
+#| fig-cap: "Comparison of the prior and posterior"
+
+# The code below was adapted based on   (2023).
+
+posterior_vs_prior(profiling_model) +
+  theme_minimal() +
+  scale_color_brewer(palette = "Set1") +
+  theme(legend.position = "none") +
+  coord_flip()
+```
+
+### Diagnostics {#sec-diagnostics}
+
+This section assesses whether the `rstanarm` [@citerstanarm] Markov chain Monte Carlo (MCMC) algorithm experienced problems [@tellingstorieswithdata].
+
+Using code adapted from @tellingstorieswithdata, a trace plot was generated (@fig-trace). @fig-trace illustrates horizontal lines that are seemingly erratic with chain overlap, indicating nothing unusual (based on @tellingstorieswithdata).
+ 
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| label: fig-trace
+#| fig-cap: "Trace plot"
+
+# The code below was adapted from   (2023).
+
+plot(profiling_model, "trace")
+```
+
+Moreover, using code adapted from @tellingstorieswithdata, a Rhat plot was created (@fig-rhat). @fig-rhat depicts values near 1 and less than or equal to 1.1, indicating no issues (based on @tellingstorieswithdata).
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| label: fig-rhat
+#| fig-cap: "Rhat plot"
+
+# The code below was adapted from   (2023).
+
+plot(profiling_model, "rhat")
+```
+
+## Credibility intervals {#sec-credibility-intervals}
+
+Using code adapted from @tellingstorieswithdata, @fig-credibility-intervals-all was generated. @fig-credibility-intervals-all illustrates 90\% credibility intervals of all of the predictors of undergoing a custody arrest based on the model from this report.
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| label: fig-credibility-intervals-all
+#| fig-cap: "Credibility intervals of all of the custody arrest predictors"
+
+# The code below was adapted from   (2023).
+
+modelplot(profiling_model, conf_level = 0.9) +
+  labs(x = "90 percent credibility interval")
+```
+
+@fig-credibility-intervals-several depicts 90\% credibility intervals of several of the predictors of undergoing a custody arrest. In particular, the American Indian/Alaskan Native and Hawaiian/Pacific Islander predictors were omitted for visual clarity (as compared to @fig-credibility-intervals-all).
+
+```{r}
+#| echo: false
+#| eval: true
+#| message: false
+#| warning: false
+#| label: fig-credibility-intervals-several
+#| fig-cap: "Credibility intervals of several of the custody arrest predictors"
+
+# Portions of the code below were adapted from   (2023).
+
+modelplot(profiling_model, conf_level = 0.9, coef_omit = c(5, 8)) +
+  labs(x = "90 percent credibility interval")
+```
+
+## Styling of code
+
+Code was styled using the `lintr` package [@citelintr] for the R programming language [@citeR].
+
+\newpage
+
+# References

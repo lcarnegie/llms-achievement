@@ -1,0 +1,1001 @@
+hit_year,track_duration_ms,tempo,loudness,mode_name,key_mode,period,before_pandemic,major,minor
+2014,232720,160.019,-4.662,minor,F minor,Before Pandemic,1,0,1
+2014,215672,131.931,-6.122,major,F# major,Before Pandemic,1,1,0
+2014,269560,119.93,-7.064,major,G# major,Before Pandemic,1,1,0
+2014,199938,94.981,-4.141,minor,A# minor,Before Pandemic,1,0,1
+2014,257840,122.017,-4.972,minor,C# minor,Before Pandemic,1,0,1
+2014,177685,100.315,-7.321,major,F# major,Before Pandemic,1,1,0
+2014,224773,144.062,-3.78,major,C# major,Before Pandemic,1,1,0
+2014,187920,134.052,-3.726,major,A major,Before Pandemic,1,1,0
+2015,187920,134.052,-3.726,major,A major,Before Pandemic,1,1,0
+2014,193920,103.008,-5.352,minor,C# minor,Before Pandemic,1,0,1
+2014,172723,84.094,-6.444,major,C major,Before Pandemic,1,1,0
+2015,172723,84.094,-6.444,major,C major,Before Pandemic,1,1,0
+2014,204053,129.972,-4.106,major,B major,Before Pandemic,1,1,0
+2014,214147,127.435,-6.383,major,A major,Before Pandemic,1,1,0
+2014,219200,160.078,-5.384,major,G major,Before Pandemic,1,1,0
+2015,219200,160.078,-5.384,major,G major,Before Pandemic,1,1,0
+2014,247520,119.939,-5.465,major,G# major,Before Pandemic,1,1,0
+2014,213733,100.014,-4.1,minor,C# minor,Before Pandemic,1,0,1
+2014,250188,110.049,-3.68,minor,C# minor,Before Pandemic,1,0,1
+2014,229400,141.284,-8.822,major,D major,Before Pandemic,1,1,0
+2014,193058,99.961,-7.436,major,F# major,Before Pandemic,1,1,0
+2014,252733,74.897,-7.346,major,G major,Before Pandemic,1,1,0
+2014,190185,84.878,-9.504,major,G major,Before Pandemic,1,1,0
+2014,223840,136.956,-6.85,major,G# major,Before Pandemic,1,1,0
+2014,249693,124.118,-5.133,major,D major,Before Pandemic,1,1,0
+2014,175200,89.938,-3.015,major,D# major,Before Pandemic,1,1,0
+2014,244560,120.967,-5.705,major,D# major,Before Pandemic,1,1,0
+2014,216120,117.089,-2.88,major,C# major,Before Pandemic,1,1,0
+2015,216120,117.089,-2.88,major,C# major,Before Pandemic,1,1,0
+2014,209423,163.99,-3.753,major,B major,Before Pandemic,1,1,0
+2014,199320,149.974,-4.446,minor,C minor,Before Pandemic,1,0,1
+2015,199320,149.974,-4.446,minor,C minor,Before Pandemic,1,0,1
+2014,255866,121.986,-5.455,major,C# major,Before Pandemic,1,1,0
+2014,189960,120.032,-5.522,minor,C# minor,Before Pandemic,1,0,1
+2014,264946,99.059,-5.963,minor,A# minor,Before Pandemic,1,0,1
+2014,194240,100.012,-2.392,major,D major,Before Pandemic,1,1,0
+2014,209160,110.02,-3.539,major,F major,Before Pandemic,1,1,0
+2015,209160,110.02,-3.539,major,F major,Before Pandemic,1,1,0
+2014,222533,127.949,-3.556,minor,E minor,Before Pandemic,1,0,1
+2014,169866,91.999,-2.28,major,E major,Before Pandemic,1,1,0
+2014,323480,140.036,-6.902,minor,F minor,Before Pandemic,1,0,1
+2014,260239,129.99,-6.224,major,D major,Before Pandemic,1,1,0
+2014,214840,129.956,-5.324,minor,G minor,Before Pandemic,1,0,1
+2014,243293,90.936,-3.506,major,G major,Before Pandemic,1,1,0
+2014,231211,87.016,-5.031,major,C# major,Before Pandemic,1,1,0
+2014,193295,81.946,-6.886,minor,A minor,Before Pandemic,1,0,1
+2014,227833,120.97,-6.735,major,B major,Before Pandemic,1,1,0
+2014,266840,98.052,-5.225,major,D major,Before Pandemic,1,1,0
+2014,217800,98.098,-7.299,major,G major,Before Pandemic,1,1,0
+2014,221360,119.964,-6.262,major,F major,Before Pandemic,1,1,0
+2014,266533,84.729,-5.772,major,D major,Before Pandemic,1,1,0
+2014,222666,89.972,-4.382,minor,G minor,Before Pandemic,1,0,1
+2014,296520,104.031,-3.681,major,A major,Before Pandemic,1,1,0
+2014,254880,81.853,-7.256,minor,B minor,Before Pandemic,1,0,1
+2014,220906,132.085,-2.969,major,G# major,Before Pandemic,1,1,0
+2014,175333,102.078,-4.859,major,C# major,Before Pandemic,1,1,0
+2014,267866,124.97,-6.474,major,F# major,Before Pandemic,1,1,0
+2014,219840,95.049,-7.008,major,C# major,Before Pandemic,1,1,0
+2015,219840,95.049,-7.008,major,C# major,Before Pandemic,1,1,0
+2014,231906,96.975,-6.253,minor,A minor,Before Pandemic,1,0,1
+2014,194561,167.879,-7.314,major,A major,Before Pandemic,1,1,0
+2014,227026,100.001,-6.636,minor,F# minor,Before Pandemic,1,0,1
+2014,235382,119.988,-4.451,minor,G# minor,Before Pandemic,1,0,1
+2014,186813,136.245,-3.686,major,A major,Before Pandemic,1,1,0
+2014,236093,171.255,-6.58,minor,A# minor,Before Pandemic,1,0,1
+2014,237626,130.027,-6.279,major,G# major,Before Pandemic,1,1,0
+2014,255093,125.014,-4.867,minor,G minor,Before Pandemic,1,0,1
+2014,217306,81.897,-4.884,major,C major,Before Pandemic,1,1,0
+2014,231013,189.868,-6.46,minor,E minor,Before Pandemic,1,0,1
+2015,231013,189.868,-6.46,minor,E minor,Before Pandemic,1,0,1
+2014,219160,135.939,-6.652,major,F# major,Before Pandemic,1,1,0
+2014,226866,143.935,-3.225,major,B major,Before Pandemic,1,1,0
+2014,227000,101.013,-7.51,major,A major,Before Pandemic,1,1,0
+2014,230586,121.973,-4.224,major,D major,Before Pandemic,1,1,0
+2014,224226,120.022,-3.752,major,G major,Before Pandemic,1,1,0
+2014,220200,170.006,-5.734,major,G major,Before Pandemic,1,1,0
+2014,206166,119.987,-7.548,major,D major,Before Pandemic,1,1,0
+2014,193975,174.08,-4.655,minor,F minor,Before Pandemic,1,0,1
+2014,304228,128.007,-6.36,major,C# major,Before Pandemic,1,1,0
+2014,269693,87.666,-5.236,major,C# major,Before Pandemic,1,1,0
+2014,182960,85.022,-7.37,major,C major,Before Pandemic,1,1,0
+2014,220573,185.063,-3.838,minor,A# minor,Before Pandemic,1,0,1
+2014,240400,124.053,-2.81,major,A# major,Before Pandemic,1,1,0
+2014,192160,171.96,-3.813,major,A major,Before Pandemic,1,1,0
+2014,244226,141.967,-4.292,major,C# major,Before Pandemic,1,1,0
+2014,246026,117.513,-6.212,minor,G minor,Before Pandemic,1,0,1
+2014,254466,205.972,-5.566,major,A major,Before Pandemic,1,1,0
+2014,215042,125.98,-5.122,major,B major,Before Pandemic,1,1,0
+2014,198034,101.005,-3.84,minor,B minor,Before Pandemic,1,0,1
+2014,220779,124.988,-4.399,minor,F# minor,Before Pandemic,1,0,1
+2014,263053,120,-7.707,major,G major,Before Pandemic,1,1,0
+2014,216573,97.47,-4.65,major,A major,Before Pandemic,1,1,0
+2014,206866,137.968,-3.556,minor,B minor,Before Pandemic,1,0,1
+2014,237247,101.593,-5.237,major,D major,Before Pandemic,1,1,0
+2014,201600,95.486,-9.539,major,C# major,Before Pandemic,1,1,0
+2014,211960,103.987,-3.803,minor,A# minor,Before Pandemic,1,0,1
+2014,337640,91.935,-8.807,minor,A# minor,Before Pandemic,1,0,1
+2014,252520,140.005,-5.254,major,A major,Before Pandemic,1,1,0
+2014,191040,181.964,-5.352,major,F# major,Before Pandemic,1,1,0
+2014,220319,116.491,-5.545,major,G major,Before Pandemic,1,1,0
+2014,202496,160.025,-4.237,major,A major,Before Pandemic,1,1,0
+2014,217346,127.961,-3.109,major,G# major,Before Pandemic,1,1,0
+2014,319466,175.928,-11.522,minor,B minor,Before Pandemic,1,0,1
+2014,278066,133.922,-7.776,minor,G# minor,Before Pandemic,1,0,1
+2014,275226,176.618,-3.964,minor,B minor,Before Pandemic,1,0,1
+2014,221173,92.036,-7.742,major,C# major,Before Pandemic,1,1,0
+2014,169586,90.076,-5.308,major,A major,Before Pandemic,1,1,0
+2014,278746,119.759,-5.407,major,C major,Before Pandemic,1,1,0
+2015,269666,114.988,-7.223,major,C major,Before Pandemic,1,1,0
+2015,281560,78.998,-6.061,major,D major,Before Pandemic,1,1,0
+2015,229525,80.025,-7.503,major,A# major,Before Pandemic,1,1,0
+2016,229525,80.025,-7.503,major,A# major,Before Pandemic,1,1,0
+2015,222093,148.075,-3.803,major,G major,Before Pandemic,1,1,0
+2015,235493,120.076,-7.055,major,C# major,Before Pandemic,1,1,0
+2015,199080,128.038,-3.804,major,C# major,Before Pandemic,1,1,0
+2015,231826,95.997,-5.412,major,F major,Before Pandemic,1,1,0
+2015,185142,140.01,-8.541,major,G# major,Before Pandemic,1,1,0
+2016,185142,140.01,-8.541,major,G# major,Before Pandemic,1,1,0
+2015,252226,119.844,-5.922,minor,D minor,Before Pandemic,1,0,1
+2015,242253,113.003,-7.063,minor,C minor,Before Pandemic,1,0,1
+2016,242253,113.003,-7.063,minor,C minor,Before Pandemic,1,0,1
+2015,180021,118.04,-7.774,major,E major,Before Pandemic,1,1,0
+2015,213520,107.949,-5.526,minor,A minor,Before Pandemic,1,0,1
+2016,213520,107.949,-5.526,minor,A minor,Before Pandemic,1,0,1
+2015,250266,189.558,-5.903,minor,F minor,Before Pandemic,1,0,1
+2015,241693,128.945,-5.303,minor,E minor,Before Pandemic,1,0,1
+2015,200106,170.16,-7.388,minor,B minor,Before Pandemic,1,0,1
+2015,176561,98.007,-3.081,minor,G minor,Before Pandemic,1,0,1
+2016,176561,98.007,-3.081,minor,G minor,Before Pandemic,1,0,1
+2015,207719,114.025,-5.508,minor,C minor,Before Pandemic,1,0,1
+2015,250285,139.432,-4.038,minor,E minor,Before Pandemic,1,0,1
+2015,202506,175.962,-5.467,major,G major,Before Pandemic,1,1,0
+2015,196693,190.05,-5.738,major,G major,Before Pandemic,1,1,0
+2016,196693,190.05,-5.738,major,G major,Before Pandemic,1,1,0
+2015,182666,139.091,-5.402,major,G major,Before Pandemic,1,1,0
+2015,224573,99.987,-3.865,major,G# major,Before Pandemic,1,1,0
+2015,226580,97.448,-5.655,minor,A# minor,Before Pandemic,1,0,1
+2015,199263,122.014,-7.289,major,A major,Before Pandemic,1,1,0
+2015,239316,82.001,-5.795,major,F major,Before Pandemic,1,1,0
+2015,221560,88.967,-6.48,minor,F minor,Before Pandemic,1,0,1
+2015,231000,94.933,-5.595,major,G major,Before Pandemic,1,1,0
+2015,267066,134.966,-7.863,major,D major,Before Pandemic,1,1,0
+2016,267066,134.966,-7.863,major,D major,Before Pandemic,1,1,0
+2015,192560,85.979,-4.091,major,A major,Before Pandemic,1,1,0
+2015,190185,145.889,-4.036,major,F major,Before Pandemic,1,1,0
+2015,205680,125.02,-8.118,minor,F minor,Before Pandemic,1,0,1
+2016,205680,125.02,-8.118,minor,F minor,Before Pandemic,1,0,1
+2015,258986,107.989,-10.48,major,E major,Before Pandemic,1,1,0
+2015,295502,157.98,-6.129,minor,F minor,Before Pandemic,1,0,1
+2016,295502,157.98,-6.129,minor,F minor,Before Pandemic,1,0,1
+2015,206880,149.789,-6.684,major,C# major,Before Pandemic,1,1,0
+2016,206880,149.789,-6.684,major,C# major,Before Pandemic,1,1,0
+2015,238426,119.999,-5.449,minor,E minor,Before Pandemic,1,0,1
+2015,223106,93.012,-3.834,minor,B minor,Before Pandemic,1,0,1
+2015,229360,124.022,-5.797,major,C# major,Before Pandemic,1,1,0
+2015,227280,121.928,-5.696,major,C# major,Before Pandemic,1,1,0
+2015,189906,104.99,-8.714,major,C major,Before Pandemic,1,1,0
+2015,188238,205.846,-5.662,major,D major,Before Pandemic,1,1,0
+2015,228360,176.042,-2.868,minor,E minor,Before Pandemic,1,0,1
+2015,213053,128.077,-3.103,major,F# major,Before Pandemic,1,1,0
+2015,243706,158.031,-5.603,major,B major,Before Pandemic,1,1,0
+2015,284386,97.972,-5.474,major,C# major,Before Pandemic,1,1,0
+2015,219305,102.99,-4.981,major,C# major,Before Pandemic,1,1,0
+2015,176744,81.997,-7.68,major,D major,Before Pandemic,1,1,0
+2015,142212,135.051,-7.116,major,B major,Before Pandemic,1,1,0
+2015,312026,120.056,-7.251,minor,G# minor,Before Pandemic,1,0,1
+2015,257200,130.075,-4.998,major,A major,Before Pandemic,1,1,0
+2015,214739,114.06,-5.639,minor,F minor,Before Pandemic,1,0,1
+2015,195200,90.052,-6.003,major,D major,Before Pandemic,1,1,0
+2015,251989,112.974,-8.337,major,E major,Before Pandemic,1,1,0
+2015,236133,98.992,-4.389,minor,C# minor,Before Pandemic,1,0,1
+2015,220440,139.997,-7.416,major,G# major,Before Pandemic,1,1,0
+2016,220440,139.997,-7.416,major,G# major,Before Pandemic,1,1,0
+2015,247266,196.093,-5.346,minor,F minor,Before Pandemic,1,0,1
+2015,211573,149.963,-2.616,minor,E minor,Before Pandemic,1,0,1
+2015,213506,136.024,-5.137,minor,A minor,Before Pandemic,1,0,1
+2015,227373,83.066,-4.874,minor,G minor,Before Pandemic,1,0,1
+2015,193320,173.788,-10.22,major,C major,Before Pandemic,1,1,0
+2015,197854,94.947,-7.834,minor,G minor,Before Pandemic,1,0,1
+2015,192106,138.098,-5.576,minor,C minor,Before Pandemic,1,0,1
+2015,220466,105.099,-6.862,major,D major,Before Pandemic,1,1,0
+2015,197266,125.026,-5.036,major,G# major,Before Pandemic,1,1,0
+2015,203106,76.006,-5.881,minor,C minor,Before Pandemic,1,0,1
+2015,223973,77.521,-5.288,minor,B minor,Before Pandemic,1,0,1
+2015,200080,125.01,-7.803,major,F# major,Before Pandemic,1,1,0
+2015,204280,101.654,-6.694,major,C# major,Before Pandemic,1,1,0
+2015,226000,94.072,-6.058,major,G# major,Before Pandemic,1,1,0
+2015,201853,139.995,-3.936,major,G major,Before Pandemic,1,1,0
+2016,201853,139.995,-3.936,major,G major,Before Pandemic,1,1,0
+2015,184226,79.427,-4.789,major,C# major,Before Pandemic,1,1,0
+2015,187741,110.025,-5.267,minor,C# minor,Before Pandemic,1,0,1
+2015,225053,108.038,-7.259,major,C major,Before Pandemic,1,1,0
+2016,225053,108.038,-7.259,major,C major,Before Pandemic,1,1,0
+2015,218506,53.863,-18.071,minor,A minor,Before Pandemic,1,0,1
+2015,239573,119.906,-5.949,major,G# major,Before Pandemic,1,1,0
+2015,253208,119.156,-9.482,major,E major,Before Pandemic,1,1,0
+2015,321987,140.163,-5.604,major,C major,Before Pandemic,1,1,0
+2015,181080,160.018,-8.253,major,G# major,Before Pandemic,1,1,0
+2015,292593,109.725,-4.402,major,C# major,Before Pandemic,1,1,0
+2015,190240,103.966,-5.251,major,G# major,Before Pandemic,1,1,0
+2015,225226,98.031,-5.095,major,F# major,Before Pandemic,1,1,0
+2015,190586,172.064,-2.315,major,C# major,Before Pandemic,1,1,0
+2015,252040,118.895,-7.634,major,C# major,Before Pandemic,1,1,0
+2015,200720,127.787,-8.268,major,F major,Before Pandemic,1,1,0
+2015,198733,149.109,-3.66,major,F# major,Before Pandemic,1,1,0
+2015,216106,104.984,-3.777,major,A major,Before Pandemic,1,1,0
+2015,199453,120.462,-3.974,major,C major,Before Pandemic,1,1,0
+2016,199453,120.462,-3.974,major,C major,Before Pandemic,1,1,0
+2015,208133,119.993,-9.334,minor,F minor,Before Pandemic,1,0,1
+2015,206666,90.013,-3.839,major,G# major,Before Pandemic,1,1,0
+2015,214725,139.982,-5.799,minor,G# minor,Before Pandemic,1,0,1
+2015,226600,120.001,-7.747,major,G# major,Before Pandemic,1,1,0
+2015,170637,86.976,-3.728,minor,C# minor,Before Pandemic,1,0,1
+2015,212640,122.003,-4.373,minor,B minor,Before Pandemic,1,0,1
+2016,233720,100.418,-9.828,major,E major,Before Pandemic,1,1,0
+2016,200786,99.945,-3.669,minor,C minor,Before Pandemic,1,0,1
+2016,173986,103.967,-5.609,major,C# major,Before Pandemic,1,1,0
+2016,219320,91.974,-6.238,major,B major,Before Pandemic,1,1,0
+2016,202333,169.977,-5.677,minor,E minor,Before Pandemic,1,0,1
+2016,247866,145.245,-5.503,minor,A# minor,Before Pandemic,1,0,1
+2016,208373,159.803,-5.094,major,B major,Before Pandemic,1,1,0
+2016,236001,113.03,-5.715,major,C major,Before Pandemic,1,1,0
+2017,236001,113.03,-5.715,major,C major,Before Pandemic,1,1,0
+2016,244960,95.01,-5.599,major,G# major,Before Pandemic,1,1,0
+2017,244960,95.01,-5.599,major,G# major,Before Pandemic,1,1,0
+2016,224813,89.972,-4.931,minor,F# minor,Before Pandemic,1,0,1
+2016,237300,119.992,-5.829,major,A# major,Before Pandemic,1,1,0
+2016,191600,110.898,-8.091,minor,F minor,Before Pandemic,1,0,1
+2016,192190,94.006,-4.792,minor,G minor,Before Pandemic,1,0,1
+2016,197933,101.969,-6.645,minor,G minor,Before Pandemic,1,0,1
+2016,214480,105.017,-5.861,major,G# major,Before Pandemic,1,1,0
+2016,222160,123.962,-2.787,minor,A minor,Before Pandemic,1,0,1
+2016,219146,119.002,-5.446,minor,E minor,Before Pandemic,1,0,1
+2016,251466,111.995,-6.518,minor,C minor,Before Pandemic,1,0,1
+2016,214506,74.989,-5.355,major,F# major,Before Pandemic,1,1,0
+2016,195743,90.028,-5.825,minor,E minor,Before Pandemic,1,0,1
+2016,203686,124.909,-4.271,major,B major,Before Pandemic,1,1,0
+2016,185360,92.943,-5.092,minor,F# minor,Before Pandemic,1,0,1
+2016,223078,164.068,-8.361,minor,F# minor,Before Pandemic,1,0,1
+2016,226738,100.001,-7.055,major,E major,Before Pandemic,1,1,0
+2016,187973,82.695,-4.078,minor,A# minor,Before Pandemic,1,0,1
+2017,187973,82.695,-4.078,minor,A# minor,Before Pandemic,1,0,1
+2016,263373,117.996,-7.839,major,G major,Before Pandemic,1,1,0
+2016,313546,143.961,-7.789,major,G# major,Before Pandemic,1,1,0
+2016,215413,162.958,-5.92,major,G major,Before Pandemic,1,1,0
+2016,225205,145.99,-7.39,major,G# major,Before Pandemic,1,1,0
+2017,225205,145.99,-7.39,major,G# major,Before Pandemic,1,1,0
+2016,198293,96.991,-5.556,minor,B minor,Before Pandemic,1,0,1
+2016,235946,134.049,-5.369,minor,E minor,Before Pandemic,1,0,1
+2016,205879,142.079,-7.286,major,C# major,Before Pandemic,1,1,0
+2016,251033,92.6,-13.4,minor,F# minor,Before Pandemic,1,0,1
+2016,229080,98.02,-4.01,minor,B minor,Before Pandemic,1,0,1
+2016,245226,92.287,-11.083,minor,A# minor,Before Pandemic,1,0,1
+2016,194453,91.024,-5.353,major,C# major,Before Pandemic,1,1,0
+2016,261160,147.43,-11.441,major,C# major,Before Pandemic,1,1,0
+2016,213506,92.134,-3.599,minor,C# minor,Before Pandemic,1,0,1
+2016,213427,145.992,-5.728,minor,B minor,Before Pandemic,1,0,1
+2016,205946,99.988,-5.371,major,G# major,Before Pandemic,1,1,0
+2017,205946,99.988,-5.371,major,G# major,Before Pandemic,1,1,0
+2016,198236,158.777,-4.503,major,G# major,Before Pandemic,1,1,0
+2016,194186,78.077,-4.081,minor,G minor,Before Pandemic,1,0,1
+2016,217706,100.017,-8.053,minor,C# minor,Before Pandemic,1,0,1
+2016,244453,107.853,-5.948,major,A major,Before Pandemic,1,1,0
+2016,225882,113.049,-9.343,major,G# major,Before Pandemic,1,1,0
+2016,194613,160.108,-10.598,major,F# major,Before Pandemic,1,1,0
+2016,238320,78.521,-3.724,major,F major,Before Pandemic,1,1,0
+2016,200680,111.016,-7.161,minor,F minor,Before Pandemic,1,0,1
+2016,240000,121.918,-5.267,minor,G minor,Before Pandemic,1,0,1
+2016,230453,186.003,-7.015,major,G major,Before Pandemic,1,1,0
+2017,230453,186.003,-7.015,major,G major,Before Pandemic,1,1,0
+2016,183695,103.521,-8.241,minor,A# minor,Before Pandemic,1,0,1
+2016,234909,115.058,-5.476,major,C major,Before Pandemic,1,1,0
+2016,235653,168.022,-4.993,major,G major,Before Pandemic,1,1,0
+2016,181240,123.831,-5.849,minor,B minor,Before Pandemic,1,0,1
+2016,227426,166.052,-9.245,major,D major,Before Pandemic,1,1,0
+2016,256532,130.098,-7.678,major,G major,Before Pandemic,1,1,0
+2016,234213,123.996,-5.273,minor,F# minor,Before Pandemic,1,0,1
+2016,193546,117.055,-6.169,major,C major,Before Pandemic,1,1,0
+2016,243490,169.021,-4.378,minor,A minor,Before Pandemic,1,0,1
+2016,259072,152.961,-7.684,minor,C# minor,Before Pandemic,1,0,1
+2016,228640,190.169,-8.113,minor,B minor,Before Pandemic,1,0,1
+2016,232560,129.988,-7.274,major,D major,Before Pandemic,1,1,0
+2016,212647,102.034,-3.516,minor,C minor,Before Pandemic,1,0,1
+2016,237786,107.331,-10.511,minor,B minor,Before Pandemic,1,0,1
+2016,262693,131.05,-5.046,major,C# major,Before Pandemic,1,1,0
+2016,275280,123.994,-15.099,major,G major,Before Pandemic,1,1,0
+2016,226160,159.173,-5.84,minor,F# minor,Before Pandemic,1,0,1
+2017,226160,159.173,-5.84,minor,F# minor,Before Pandemic,1,0,1
+2016,202221,182.105,-4.081,major,D major,Before Pandemic,1,1,0
+2016,220573,104.879,-5.336,major,A major,Before Pandemic,1,1,0
+2016,213445,154.911,-6.666,major,C major,Before Pandemic,1,1,0
+2016,209453,133.114,-9.093,minor,E minor,Before Pandemic,1,0,1
+2016,290900,144.464,-5.936,major,D# major,Before Pandemic,1,1,0
+2016,192376,95.018,-4.714,minor,B minor,Before Pandemic,1,0,1
+2016,223853,113.939,-4.582,minor,A minor,Before Pandemic,1,0,1
+2016,191942,117.139,-6.44,minor,A# minor,Before Pandemic,1,0,1
+2016,201647,92.936,-5.473,minor,A minor,Before Pandemic,1,0,1
+2016,228613,127.047,-6.506,minor,A# minor,Before Pandemic,1,0,1
+2016,222600,130,-4.184,major,G major,Before Pandemic,1,1,0
+2016,232093,118.97,-6.055,major,C major,Before Pandemic,1,1,0
+2016,210573,95.04,-5.194,minor,C minor,Before Pandemic,1,0,1
+2016,181880,99.962,-4.238,major,E major,Before Pandemic,1,1,0
+2017,181880,99.962,-4.238,major,E major,Before Pandemic,1,1,0
+2016,263786,111.995,-3.887,major,G major,Before Pandemic,1,1,0
+2016,257346,151.478,-7.31,major,B major,Before Pandemic,1,1,0
+2016,173346,157.97,-5.899,minor,B minor,Before Pandemic,1,0,1
+2016,239853,122.803,-3.054,major,F# major,Before Pandemic,1,1,0
+2016,230333,99.933,-5.231,major,D major,Before Pandemic,1,1,0
+2017,233712,95.977,-3.183,minor,C# minor,Before Pandemic,1,0,1
+2017,228826,178.085,-4.353,major,D major,Before Pandemic,1,1,0
+2017,206693,134.066,-4.961,major,C# major,Before Pandemic,1,1,0
+2017,177000,150.011,-6.638,minor,C# minor,Before Pandemic,1,0,1
+2017,247160,103.019,-6.769,minor,B minor,Before Pandemic,1,0,1
+2017,343150,127.079,-5.314,major,B major,Before Pandemic,1,1,0
+2017,165386,98.938,-7.225,major,F major,Before Pandemic,1,1,0
+2017,204346,124.988,-4.288,minor,A# minor,Before Pandemic,1,0,1
+2017,220293,123.146,-4.183,major,F# major,Before Pandemic,1,1,0
+2017,211466,85.043,-7.398,major,A# major,Before Pandemic,1,1,0
+2017,288600,80.924,-4.284,major,G major,Before Pandemic,1,1,0
+2017,182706,155.096,-6.366,minor,B minor,Before Pandemic,1,0,1
+2017,204600,150.062,-8.795,major,D major,Before Pandemic,1,1,0
+2017,233901,97.985,-5.043,major,F# major,Before Pandemic,1,1,0
+2017,225983,106.97,-4.282,major,C# major,Before Pandemic,1,1,0
+2017,210090,102.04,-5.025,minor,F minor,Before Pandemic,1,0,1
+2017,204173,97.979,-3.094,minor,C minor,Before Pandemic,1,0,1
+2017,291893,145.926,-6.163,major,C major,Before Pandemic,1,1,0
+2017,219080,80.126,-11.462,minor,C# minor,Before Pandemic,1,0,1
+2017,211475,100.041,-4.432,minor,D# minor,Before Pandemic,1,0,1
+2017,199440,121.998,-4.063,minor,B minor,Before Pandemic,1,0,1
+2017,223962,125.022,-5.792,minor,B minor,Before Pandemic,1,0,1
+2017,326933,160.033,-10.425,major,C# major,Before Pandemic,1,1,0
+2017,245653,117.967,-8.432,major,C major,Before Pandemic,1,1,0
+2017,220780,99.968,-6.596,major,C major,Before Pandemic,1,1,0
+2017,253106,75.016,-6.745,major,G major,Before Pandemic,1,1,0
+2017,176320,114.145,-6.852,major,G# major,Before Pandemic,1,1,0
+2017,230226,97.085,-5.74,major,C major,Before Pandemic,1,1,0
+2017,250173,100.023,-7.788,minor,F minor,Before Pandemic,1,0,1
+2017,188174,85.899,-6.652,major,C major,Before Pandemic,1,1,0
+2017,224000,172.006,-4.83,minor,E minor,Before Pandemic,1,0,1
+2017,269186,92.987,-5.946,minor,C minor,Before Pandemic,1,0,1
+2017,222360,81.502,-5.628,minor,C# minor,Before Pandemic,1,0,1
+2017,204502,106.023,-5.484,major,F# major,Before Pandemic,1,1,0
+2017,210937,134.007,-9.35,minor,A minor,Before Pandemic,1,0,1
+2017,214265,100.025,-6.198,major,G major,Before Pandemic,1,1,0
+2017,211859,128.072,-6.416,minor,A minor,Before Pandemic,1,0,1
+2017,261153,135.007,-4.868,major,D major,Before Pandemic,1,1,0
+2017,239293,137.853,-4.757,major,D major,Before Pandemic,1,1,0
+2017,221506,99.99,-6.428,major,D major,Before Pandemic,1,1,0
+2017,251088,101.965,-4.068,minor,A minor,Before Pandemic,1,0,1
+2017,163250,78.969,-5.151,minor,C# minor,Before Pandemic,1,0,1
+2017,203760,144.004,-6.917,minor,B minor,Before Pandemic,1,0,1
+2017,220306,75.016,-8.227,minor,G# minor,Before Pandemic,1,0,1
+2017,209733,104.996,-6.39,minor,B minor,Before Pandemic,1,0,1
+2017,187146,167.985,-4.804,major,C major,Before Pandemic,1,1,0
+2017,242407,139.023,-3.744,minor,A# minor,Before Pandemic,1,0,1
+2017,276333,149.953,-8.126,minor,C# minor,Before Pandemic,1,0,1
+2017,208733,148.128,-4.952,minor,B minor,Before Pandemic,1,0,1
+2017,268186,171.853,-7.724,minor,B minor,Before Pandemic,1,0,1
+2017,218320,159.786,-6.631,minor,F minor,Before Pandemic,1,0,1
+2017,224853,147.986,-7.306,major,A# major,Before Pandemic,1,1,0
+2017,195920,90.024,-9.348,minor,E minor,Before Pandemic,1,0,1
+2017,214801,110.03,-4.861,minor,F# minor,Before Pandemic,1,0,1
+2017,209640,120.04,-10.179,minor,F minor,Before Pandemic,1,0,1
+2017,238586,144.946,-2.512,major,C# major,Before Pandemic,1,1,0
+2017,185946,139.913,-6.664,major,C# major,Before Pandemic,1,1,0
+2017,144244,160.517,-3.892,major,C# major,Before Pandemic,1,1,0
+2017,208120,139.992,-9.319,major,G# major,Before Pandemic,1,1,0
+2017,298940,111.98,-11.377,major,B major,Before Pandemic,1,1,0
+2017,227360,110.684,-8.983,minor,A minor,Before Pandemic,1,0,1
+2017,230269,73.483,-7.204,major,A# major,Before Pandemic,1,1,0
+2017,243836,130.049,-3.37,major,G major,Before Pandemic,1,1,0
+2017,234308,99.915,-6.295,minor,A minor,Before Pandemic,1,0,1
+2017,230813,104.066,-3.299,minor,C# minor,Before Pandemic,1,0,1
+2017,188253,125.976,-4.603,major,A# major,Before Pandemic,1,1,0
+2017,237734,95.252,-5.389,major,C major,Before Pandemic,1,1,0
+2017,223413,101.018,-3.105,minor,B minor,Before Pandemic,1,0,1
+2017,217603,90.246,-4.188,major,C major,Before Pandemic,1,1,0
+2017,222533,75.977,-6.185,major,A# major,Before Pandemic,1,1,0
+2017,201000,91.873,-8.237,major,F major,Before Pandemic,1,1,0
+2017,202546,136.948,-6.351,major,C# major,Before Pandemic,1,1,0
+2017,181812,162.991,-7.323,minor,B minor,Before Pandemic,1,0,1
+2017,275080,135.002,-6.2,major,C major,Before Pandemic,1,1,0
+2017,209269,129.014,-5.274,minor,F minor,Before Pandemic,1,0,1
+2017,190311,139.976,-7.509,minor,G minor,Before Pandemic,1,0,1
+2017,271519,113.756,-6.186,major,C# major,Before Pandemic,1,1,0
+2017,216408,98.064,-3.862,major,C# major,Before Pandemic,1,1,0
+2017,304041,141.967,-5.661,minor,C# minor,Before Pandemic,1,0,1
+2017,340706,120.019,-4.616,major,F major,Before Pandemic,1,1,0
+2017,240439,94.963,-6.503,minor,F minor,Before Pandemic,1,0,1
+2017,231906,139.934,-6.406,major,G# major,Before Pandemic,1,1,0
+2017,197773,113.301,-14.712,minor,C minor,Before Pandemic,1,0,1
+2017,222786,112.961,-6.669,major,A# major,Before Pandemic,1,1,0
+2017,233087,139.948,-5.475,major,B major,Before Pandemic,1,1,0
+2017,205733,72.997,-6.016,major,A major,Before Pandemic,1,1,0
+2017,197170,155.955,-4.701,major,G major,Before Pandemic,1,1,0
+2017,216896,104.992,-4.323,minor,G minor,Before Pandemic,1,0,1
+2017,199849,109.959,-5.212,minor,F minor,Before Pandemic,1,0,1
+2017,212027,111.002,-6.35,major,G# major,Before Pandemic,1,1,0
+2017,126345,139.059,-6.405,major,C# major,Before Pandemic,1,1,0
+2017,184040,132.023,-5.147,minor,B minor,Before Pandemic,1,0,1
+2018,198973,77.169,-9.211,major,G major,Before Pandemic,1,1,0
+2018,263400,95.05,-6.312,major,G# major,Before Pandemic,1,1,0
+2018,164205,153.995,-6.61,major,A# major,Before Pandemic,1,1,0
+2018,217306,104.988,-4.333,major,D major,Before Pandemic,1,1,0
+2018,218146,159.801,-6.136,minor,F minor,Before Pandemic,1,0,1
+2018,221440,140.06,-8.094,major,G# major,Before Pandemic,1,1,0
+2018,253390,136.048,-3.998,minor,F minor,Before Pandemic,1,0,1
+2019,253390,136.048,-3.998,minor,F minor,Before Pandemic,1,0,1
+2018,184732,107.01,-3.061,major,G major,Before Pandemic,1,1,0
+2018,217925,91.03,-5.833,major,C# major,Before Pandemic,1,1,0
+2018,235545,124.959,-6.825,major,C major,Before Pandemic,1,1,0
+2019,235545,124.959,-6.825,major,C major,Before Pandemic,1,1,0
+2018,210746,93.372,-6.474,major,G# major,Before Pandemic,1,1,0
+2018,239835,83.903,-7.23,minor,F# minor,Before Pandemic,1,0,1
+2018,231266,145.038,-5.804,major,A# major,Before Pandemic,1,1,0
+2019,231266,145.038,-5.804,major,A# major,Before Pandemic,1,1,0
+2018,217288,105.115,-4.877,minor,F minor,Before Pandemic,1,0,1
+2018,239341,81.201,-3.726,minor,A# minor,Before Pandemic,1,0,1
+2018,209320,116.073,-6.021,minor,A minor,Before Pandemic,1,0,1
+2018,166605,75.023,-4.88,major,G# major,Before Pandemic,1,1,0
+2018,226973,129.923,-4.333,major,C major,Before Pandemic,1,1,0
+2018,201253,143.916,-7.748,major,F# major,Before Pandemic,1,1,0
+2019,201253,143.916,-7.748,major,F# major,Before Pandemic,1,1,0
+2018,205920,121.993,-5.507,minor,A minor,Before Pandemic,1,0,1
+2018,131064,142.929,-3.874,major,E major,Before Pandemic,1,1,0
+2018,187146,167.997,-4.833,major,C major,Before Pandemic,1,1,0
+2018,181414,139.977,-7.501,major,A# major,Before Pandemic,1,1,0
+2018,232253,95.045,-10.178,minor,A minor,Before Pandemic,1,0,1
+2018,142273,119.957,-9.309,minor,F minor,Before Pandemic,1,0,1
+2018,202620,95.079,-2.384,minor,A minor,Before Pandemic,1,0,1
+2018,181279,118.384,-3.539,major,C major,Before Pandemic,1,1,0
+2018,232959,97.994,-7.442,major,C major,Before Pandemic,1,1,0
+2018,212120,147.997,-5.68,minor,F minor,Before Pandemic,1,0,1
+2018,245386,175.957,-3.791,major,C# major,Before Pandemic,1,1,0
+2018,179404,125.978,-9.127,major,C# major,Before Pandemic,1,1,0
+2018,196746,86.016,-5.731,major,B major,Before Pandemic,1,1,0
+2019,196746,86.016,-5.731,major,B major,Before Pandemic,1,1,0
+2018,163253,79.028,-5.115,minor,C# minor,Before Pandemic,1,0,1
+2018,303076,137.996,-5.32,major,D major,Before Pandemic,1,1,0
+2018,197436,91.97,-7.621,major,A major,Before Pandemic,1,1,0
+2018,203417,120.274,-5.114,minor,G minor,Before Pandemic,1,0,1
+2019,203417,120.274,-5.114,minor,G minor,Before Pandemic,1,0,1
+2018,201240,134.945,-5.021,minor,A# minor,Before Pandemic,1,0,1
+2018,172800,100.007,-8.28,major,A major,Before Pandemic,1,1,0
+2018,223346,143.95,-5.408,minor,G# minor,Before Pandemic,1,0,1
+2018,211440,100.584,-4.979,major,D major,Before Pandemic,1,1,0
+2018,210240,102.036,-6.271,major,F# major,Before Pandemic,1,1,0
+2018,312820,155.008,-3.714,major,G# major,Before Pandemic,1,1,0
+2019,312820,155.008,-3.714,major,G# major,Before Pandemic,1,1,0
+2018,276147,145.914,-5.145,major,D major,Before Pandemic,1,1,0
+2018,124055,119.889,-6.71,major,F major,Before Pandemic,1,1,0
+2018,268866,87.908,-6.343,major,D major,Before Pandemic,1,1,0
+2018,211360,140.025,-7.321,major,F major,Before Pandemic,1,1,0
+2018,232186,96.924,-4.946,major,G# major,Before Pandemic,1,1,0
+2018,190288,181.982,-5.402,major,D major,Before Pandemic,1,1,0
+2018,201000,91.873,-8.237,major,F major,Before Pandemic,1,1,0
+2018,213400,126.058,-7.343,major,A# major,Before Pandemic,1,1,0
+2018,225773,120.024,-6.159,major,F major,Before Pandemic,1,1,0
+2018,238614,154.983,-8.074,major,G major,Before Pandemic,1,1,0
+2018,179506,80.006,-6.544,major,A major,Before Pandemic,1,1,0
+2018,223712,125.022,-6.337,minor,B minor,Before Pandemic,1,0,1
+2018,216631,133.123,-5.042,major,G# major,Before Pandemic,1,1,0
+2018,157643,157.036,-4.926,major,D major,Before Pandemic,1,1,0
+2018,175229,94.981,-6.531,major,B major,Before Pandemic,1,1,0
+2018,190642,126.088,-5.014,major,G# major,Before Pandemic,1,1,0
+2018,210787,152.279,-8.23,minor,F# minor,Before Pandemic,1,0,1
+2018,197993,124.987,-4.614,minor,B minor,Before Pandemic,1,0,1
+2018,224284,138.015,-7.955,major,C# major,Before Pandemic,1,1,0
+2018,197546,145.031,-5.934,major,C# major,Before Pandemic,1,1,0
+2018,237240,203.911,-7.709,major,C# major,Before Pandemic,1,1,0
+2018,203760,143.931,-6.929,minor,B minor,Before Pandemic,1,0,1
+2018,200853,109.974,-5.253,minor,C# minor,Before Pandemic,1,0,1
+2018,225013,81.059,-5.338,minor,C minor,Before Pandemic,1,0,1
+2018,202546,136.948,-6.351,major,C# major,Before Pandemic,1,1,0
+2018,214846,123.994,-3.24,minor,A minor,Before Pandemic,1,0,1
+2018,189466,100,-6.112,major,D major,Before Pandemic,1,1,0
+2018,196800,132.025,-5.305,major,G major,Before Pandemic,1,1,0
+2018,233712,95.977,-3.183,minor,C# minor,Before Pandemic,1,0,1
+2018,233087,139.948,-5.475,major,B major,Before Pandemic,1,1,0
+2018,260000,135.702,-4.706,major,C major,Before Pandemic,1,1,0
+2018,173600,170.142,-5.482,major,B major,Before Pandemic,1,1,0
+2018,259333,145.965,-10.532,major,F# major,Before Pandemic,1,1,0
+2018,205453,85.028,-8.633,major,D# major,Before Pandemic,1,1,0
+2018,173799,89.391,-7.648,minor,F# minor,Before Pandemic,1,0,1
+2018,228373,134.17,-4.954,major,C# major,Before Pandemic,1,1,0
+2018,225266,81.774,-4.574,major,C# major,Before Pandemic,1,1,0
+2018,214289,100.015,-2.749,major,F major,Before Pandemic,1,1,0
+2019,214289,100.015,-2.749,major,F major,Before Pandemic,1,1,0
+2018,417920,96.507,-3.445,minor,B minor,Before Pandemic,1,0,1
+2018,185200,199.669,-3.704,major,D# major,Before Pandemic,1,1,0
+2018,219706,94.997,-6.556,major,C# major,Before Pandemic,1,1,0
+2018,250173,100.023,-7.788,minor,F minor,Before Pandemic,1,0,1
+2018,278893,97.04,-7.031,major,A# major,Before Pandemic,1,1,0
+2018,214466,150.002,-7.866,minor,B minor,Before Pandemic,1,0,1
+2018,199625,92.456,-6.109,major,G major,Before Pandemic,1,1,0
+2018,135090,128.009,-5.723,minor,A minor,Before Pandemic,1,0,1
+2018,199849,110.001,-5.131,minor,F minor,Before Pandemic,1,0,1
+2018,173627,180.073,-4.736,minor,A minor,Before Pandemic,1,0,1
+2018,129105,134.068,-5.334,minor,B minor,Before Pandemic,1,0,1
+2018,213993,79.882,-5.628,minor,B minor,Before Pandemic,1,0,1
+2019,213993,79.882,-5.628,minor,B minor,Before Pandemic,1,0,1
+2018,200480,95.001,-3.416,major,C# major,Before Pandemic,1,1,0
+2018,121886,64.934,-10.068,major,B major,Before Pandemic,1,1,0
+2018,217120,71.957,-7.906,major,E major,Before Pandemic,1,1,0
+2018,221800,144.075,-6.16,minor,F# minor,Before Pandemic,1,0,1
+2018,332300,173.948,-4.75,minor,C# minor,Before Pandemic,1,0,1
+2018,217946,97.028,-5.975,major,G major,Before Pandemic,1,1,0
+2018,209733,105.009,-6.36,minor,B minor,Before Pandemic,1,0,1
+2018,204346,124.949,-4.374,minor,A# minor,Before Pandemic,1,0,1
+2019,157066,136.041,-5.56,major,F# major,Before Pandemic,1,1,0
+2019,158040,89.911,-5.574,major,D major,Before Pandemic,1,1,0
+2019,201660,136.041,-7.05,major,F# major,Before Pandemic,1,1,0
+2019,194087,135.128,-10.965,major,G major,Before Pandemic,1,1,0
+2020,194087,135.128,-10.965,major,G major,During and After Pandemic,0,1,0
+2019,149546,99.96,-7.359,minor,B minor,Before Pandemic,1,0,1
+2019,178626,140.048,-10.732,minor,C# minor,Before Pandemic,1,0,1
+2019,197573,135.984,-8.575,major,C major,Before Pandemic,1,1,0
+2019,181026,137.958,-5.065,minor,C# minor,Before Pandemic,1,0,1
+2019,190946,82.014,-2.729,major,F major,Before Pandemic,1,1,0
+2019,207320,106.966,-5.634,major,C# major,Before Pandemic,1,1,0
+2019,173325,158.087,-3.046,minor,E minor,Before Pandemic,1,0,1
+2020,173325,158.087,-3.046,minor,E minor,During and After Pandemic,0,0,1
+2019,171029,102.998,-7.513,major,G# major,Before Pandemic,1,1,0
+2019,190799,116.967,-6.049,minor,A minor,Before Pandemic,1,0,1
+2020,190799,116.967,-6.049,minor,A minor,During and After Pandemic,0,0,1
+2019,219946,101.956,-5.041,major,F# major,Before Pandemic,1,1,0
+2019,170769,89.949,-7.665,minor,F# minor,Before Pandemic,1,0,1
+2019,180522,86.003,-6.365,minor,E minor,Before Pandemic,1,0,1
+2019,217212,95.801,-6.557,major,G major,Before Pandemic,1,1,0
+2019,229400,98.028,-9.543,minor,C minor,Before Pandemic,1,0,1
+2019,260640,92.928,-6.756,minor,C# minor,Before Pandemic,1,0,1
+2020,260640,92.928,-6.756,minor,C# minor,During and After Pandemic,0,0,1
+2019,187436,133.002,-4.724,major,C# major,Before Pandemic,1,1,0
+2019,163320,75.445,-6.482,minor,D minor,Before Pandemic,1,0,1
+2019,213000,126.023,-6.899,major,G# major,Before Pandemic,1,1,0
+2019,145542,112.511,-6.903,minor,C# minor,Before Pandemic,1,0,1
+2019,182160,109.891,-5.679,major,C# major,Before Pandemic,1,1,0
+2020,182160,109.891,-5.679,major,C# major,During and After Pandemic,0,1,0
+2019,131240,179.974,-6.257,minor,G minor,Before Pandemic,1,0,1
+2019,191466,123.935,-4.197,major,D major,Before Pandemic,1,1,0
+2019,174853,150.068,-3.875,major,F major,Before Pandemic,1,1,0
+2019,228759,98.043,-5.788,minor,G# minor,Before Pandemic,1,0,1
+2019,205426,100.541,-4.045,minor,A# minor,Before Pandemic,1,0,1
+2019,213386,135.929,-5.968,major,C# major,Before Pandemic,1,1,0
+2019,190440,169.999,-5.29,minor,F minor,Before Pandemic,1,0,1
+2019,200889,133.992,-6.711,major,C# major,Before Pandemic,1,1,0
+2019,183527,130.003,-6.508,minor,G# minor,Before Pandemic,1,0,1
+2019,171360,85.026,-5.617,major,D major,Before Pandemic,1,1,0
+2019,114893,153.848,-6.146,minor,F minor,Before Pandemic,1,0,1
+2020,114893,153.848,-6.146,minor,F minor,During and After Pandemic,0,0,1
+2019,179449,96.057,-5.075,minor,D# minor,Before Pandemic,1,0,1
+2019,288624,145.972,-7.643,major,C# major,Before Pandemic,1,1,0
+2019,193000,182.162,-4.105,major,C major,Before Pandemic,1,1,0
+2019,210367,97.054,-6.354,minor,F# minor,Before Pandemic,1,0,1
+2019,166560,168.112,-7.119,major,C# major,Before Pandemic,1,1,0
+2019,193200,103.313,-7.431,major,B major,Before Pandemic,1,1,0
+2019,129264,104.025,-12.89,minor,A# minor,Before Pandemic,1,0,1
+2019,239835,83.903,-7.23,minor,F# minor,Before Pandemic,1,0,1
+2019,183906,146.034,-5.266,major,E major,Before Pandemic,1,1,0
+2019,197866,92.979,-8.114,minor,F minor,Before Pandemic,1,0,1
+2019,203161,143.01,-5.144,minor,E minor,Before Pandemic,1,0,1
+2019,234346,149.959,-4.58,major,F# major,Before Pandemic,1,1,0
+2019,205106,139.984,-5.106,major,A# major,Before Pandemic,1,1,0
+2019,196493,126.421,-7.595,major,B major,Before Pandemic,1,1,0
+2019,192470,202.015,-5.545,major,C major,Before Pandemic,1,1,0
+2019,200593,97.984,-8.635,major,A major,Before Pandemic,1,1,0
+2019,212500,95.881,-4.167,minor,G# minor,Before Pandemic,1,0,1
+2019,182623,144.107,-5.029,minor,C# minor,Before Pandemic,1,0,1
+2019,120133,149.042,-7.664,minor,C# minor,Before Pandemic,1,0,1
+2019,274693,147.873,-6.89,major,F major,Before Pandemic,1,1,0
+2019,169666,107.936,-3.337,major,F major,Before Pandemic,1,1,0
+2019,215280,120.042,-3.497,major,C major,Before Pandemic,1,1,0
+2020,215280,120.042,-3.497,major,C major,During and After Pandemic,0,1,0
+2019,186733,77,-4.483,major,C# major,Before Pandemic,1,1,0
+2019,200186,97.991,-8.981,minor,E minor,Before Pandemic,1,0,1
+2019,193226,93.989,-2.652,minor,G# minor,Before Pandemic,1,0,1
+2019,268434,115.007,-7.985,minor,C minor,Before Pandemic,1,0,1
+2019,196077,82.642,-14.084,major,E major,Before Pandemic,1,1,0
+2019,158332,97.075,-4.713,major,G# major,Before Pandemic,1,1,0
+2019,184060,126.754,-7.523,minor,G minor,Before Pandemic,1,0,1
+2020,184060,126.754,-7.523,minor,G minor,During and After Pandemic,0,0,1
+2019,195637,150.024,-2.806,major,G major,Before Pandemic,1,1,0
+2019,198160,100.049,-5.413,major,G# major,Before Pandemic,1,1,0
+2019,193143,120.046,-14.505,major,G# major,Before Pandemic,1,1,0
+2019,203881,158.896,-4.669,minor,A# minor,Before Pandemic,1,0,1
+2019,80927,115.056,-1.746,major,G# major,Before Pandemic,1,1,0
+2019,126446,105.038,-6.294,major,D major,Before Pandemic,1,1,0
+2019,189253,124.008,-4.054,minor,F minor,Before Pandemic,1,0,1
+2019,183000,94.01,-5.883,major,C major,Before Pandemic,1,1,0
+2020,183000,94.01,-5.883,major,C major,During and After Pandemic,0,1,0
+2019,199382,131.983,-3.728,major,D major,Before Pandemic,1,1,0
+2019,198440,140.975,-6.857,major,A major,Before Pandemic,1,1,0
+2019,189486,93.023,-5.239,major,A major,Before Pandemic,1,1,0
+2019,202204,110.567,-4.931,minor,C# minor,Before Pandemic,1,0,1
+2019,142417,108.003,-7.259,major,A# major,Before Pandemic,1,1,0
+2019,168960,113,-3.966,major,D major,Before Pandemic,1,1,0
+2019,192053,153.653,-6.05,major,G# major,Before Pandemic,1,1,0
+2019,205803,140.022,-7.384,major,C# major,Before Pandemic,1,1,0
+2019,181823,88.042,-2.253,major,E major,Before Pandemic,1,1,0
+2019,192539,130.028,-4.904,major,C# major,Before Pandemic,1,1,0
+2019,160013,120.088,-6.728,major,A major,Before Pandemic,1,1,0
+2019,199427,98.985,-4.568,major,C major,Before Pandemic,1,1,0
+2019,202920,119.964,-4.791,major,E major,Before Pandemic,1,1,0
+2019,180000,100.027,-4.722,major,D major,Before Pandemic,1,1,0
+2019,182493,97.155,-6.982,major,A major,Before Pandemic,1,1,0
+2019,169920,94.975,-4.616,major,C# major,Before Pandemic,1,1,0
+2019,186093,189.31,-3.697,minor,A# minor,Before Pandemic,1,0,1
+2019,177390,88.038,-6.119,major,C# major,Before Pandemic,1,1,0
+2019,240050,159.966,-5.122,major,D major,Before Pandemic,1,1,0
+2020,200040,171.005,-5.934,major,C# major,During and After Pandemic,0,1,0
+2021,200040,171.005,-5.934,major,C# major,During and After Pandemic,0,1,0
+2020,196652,116.971,-6.687,minor,A# minor,During and After Pandemic,0,0,1
+2020,183290,123.95,-4.521,minor,B minor,During and After Pandemic,0,0,1
+2020,181733,89.977,-7.956,major,B major,During and After Pandemic,0,1,0
+2020,207133,99.048,-3.675,major,G# major,During and After Pandemic,0,1,0
+2020,237918,142.053,-6.903,minor,D minor,During and After Pandemic,0,0,1
+2020,189486,91.019,-7.209,major,B major,During and After Pandemic,0,1,0
+2020,197293,77.004,-6.642,minor,B minor,During and After Pandemic,0,0,1
+2020,237893,110.962,-4.583,minor,B minor,During and After Pandemic,0,0,1
+2020,210772,75.998,-6.227,major,F# major,During and After Pandemic,0,1,0
+2021,210772,75.998,-6.227,major,F# major,During and After Pandemic,0,1,0
+2020,139741,145.062,-6.671,minor,B minor,During and After Pandemic,0,0,1
+2020,209438,98.027,-6.4,minor,F# minor,During and After Pandemic,0,0,1
+2020,242000,169.02,-4.776,minor,A# minor,During and After Pandemic,0,0,1
+2020,163636,116.735,-5.616,minor,F# minor,During and After Pandemic,0,0,1
+2020,212866,147.986,-6.637,major,A major,During and After Pandemic,0,1,0
+2020,245425,120.006,-14.454,minor,F# minor,During and After Pandemic,0,0,1
+2020,176867,121.955,-5.472,major,G# major,During and After Pandemic,0,1,0
+2020,174000,95.39,-4.209,major,C major,During and After Pandemic,0,1,0
+2020,215106,111.881,-4.858,major,D# major,During and After Pandemic,0,1,0
+2020,159381,127.087,-8.756,minor,A# minor,During and After Pandemic,0,0,1
+2020,167693,89.991,-4.644,major,A# major,During and After Pandemic,0,1,0
+2020,187541,133.073,-7.509,major,C# major,During and After Pandemic,0,1,0
+2020,180434,97.008,-6.678,major,G major,During and After Pandemic,0,1,0
+2020,188343,129.992,-7.106,minor,F# minor,During and After Pandemic,0,0,1
+2020,162546,99.034,-7.909,major,C major,During and After Pandemic,0,1,0
+2020,198266,170.062,-5.507,minor,A# minor,During and After Pandemic,0,0,1
+2020,159714,126.77,-3.909,major,B major,During and After Pandemic,0,1,0
+2020,206458,102.819,-8.985,major,E major,During and After Pandemic,0,1,0
+2020,159735,95.982,-3.18,minor,C minor,During and After Pandemic,0,0,1
+2020,247058,81.604,-8.82,minor,C# minor,During and After Pandemic,0,0,1
+2020,221820,113.011,-3.434,minor,E minor,During and After Pandemic,0,0,1
+2020,205453,97.074,-5.785,major,G major,During and After Pandemic,0,1,0
+2020,171374,150.076,-8.52,minor,C minor,During and After Pandemic,0,0,1
+2020,170746,105.046,-6.024,major,G# major,During and After Pandemic,0,1,0
+2020,199053,114.044,-4.41,minor,F# minor,During and After Pandemic,0,0,1
+2021,199053,114.044,-4.41,minor,F# minor,During and After Pandemic,0,0,1
+2020,176960,94.148,-8.932,minor,C minor,During and After Pandemic,0,0,1
+2021,176960,94.148,-8.932,minor,C minor,During and After Pandemic,0,0,1
+2020,220486,97.956,-8.442,minor,B minor,During and After Pandemic,0,0,1
+2020,261492,133.976,-8.871,major,C major,During and After Pandemic,0,1,0
+2021,261492,133.976,-8.871,major,C major,During and After Pandemic,0,1,0
+2020,183011,142.976,-5.551,major,B major,During and After Pandemic,0,1,0
+2020,173333,144.004,-8.765,minor,D# minor,During and After Pandemic,0,0,1
+2020,175720,76.469,-8.764,minor,G minor,During and After Pandemic,0,0,1
+2020,140525,90.989,-3.558,minor,G minor,During and After Pandemic,0,0,1
+2020,182200,123.056,-3.764,major,A major,During and After Pandemic,0,1,0
+2020,190476,125.971,-6.606,minor,F# minor,During and After Pandemic,0,0,1
+2021,190476,125.971,-6.606,minor,F# minor,During and After Pandemic,0,0,1
+2020,221714,105.04,-7.037,minor,A# minor,During and After Pandemic,0,0,1
+2020,159669,157.878,-8.468,minor,A# minor,During and After Pandemic,0,0,1
+2020,194866,143.912,-5.515,major,C major,During and After Pandemic,0,1,0
+2020,205484,144.991,-5.181,major,C major,During and After Pandemic,0,1,0
+2020,211626,74.659,-9.97,major,C# major,During and After Pandemic,0,1,0
+2020,181929,135.14,-5.064,major,C# major,During and After Pandemic,0,1,0
+2020,208520,145.842,-6.652,minor,A minor,During and After Pandemic,0,0,1
+2020,186240,75.991,-8.331,major,F# major,During and After Pandemic,0,1,0
+2020,178146,159.847,-6.658,minor,D# minor,During and After Pandemic,0,0,1
+2020,158571,112.022,-6.832,major,F major,During and After Pandemic,0,1,0
+2020,210800,165.995,-5.26,minor,A# minor,During and After Pandemic,0,0,1
+2020,189322,180.051,-5.884,minor,F minor,During and After Pandemic,0,0,1
+2020,147800,130.087,-9.867,minor,F# minor,During and After Pandemic,0,0,1
+2020,188320,76.042,-6.633,major,A major,During and After Pandemic,0,1,0
+2020,200221,163.071,-4.818,minor,F minor,During and After Pandemic,0,0,1
+2020,241106,150.273,-7.463,major,G major,During and After Pandemic,0,1,0
+2021,241106,150.273,-7.463,major,G major,During and After Pandemic,0,1,0
+2022,241106,150.273,-7.463,major,G major,During and After Pandemic,0,1,0
+2023,241106,150.273,-7.463,major,G major,During and After Pandemic,0,1,0
+2020,188893,95.981,-6.079,major,E major,During and After Pandemic,0,1,0
+2020,204760,130.069,-5.517,major,E major,During and After Pandemic,0,1,0
+2020,193426,89.997,-4.872,major,A major,During and After Pandemic,0,1,0
+2020,193026,111.997,-8.044,minor,C minor,During and After Pandemic,0,0,1
+2020,198688,118.024,-4.725,major,A# major,During and After Pandemic,0,1,0
+2020,197529,88.284,-4.269,minor,F# minor,During and After Pandemic,0,0,1
+2020,222997,140.004,-9.682,minor,A minor,During and After Pandemic,0,0,1
+2020,252728,96.459,-5.756,major,C# major,During and After Pandemic,0,1,0
+2020,201600,99.7,-5.655,major,C# major,During and After Pandemic,0,1,0
+2020,205760,124.011,-7.571,minor,E minor,During and After Pandemic,0,0,1
+2020,228482,178.765,-6.658,major,G# major,During and After Pandemic,0,1,0
+2020,213333,179.798,-6.335,minor,A# minor,During and After Pandemic,0,0,1
+2020,205473,110.943,-6.35,major,D major,During and After Pandemic,0,1,0
+2020,216386,142.094,-5.732,major,G major,During and After Pandemic,0,1,0
+2020,223488,128.978,-4.746,major,G major,During and After Pandemic,0,1,0
+2020,225253,77.962,-6.04,major,D major,During and After Pandemic,0,1,0
+2020,165977,129.979,-7.648,minor,C minor,During and After Pandemic,0,0,1
+2020,203093,170.024,-2.607,major,C major,During and After Pandemic,0,1,0
+2020,191406,86.97,-8.415,major,G major,During and After Pandemic,0,1,0
+2020,205400,97.028,-8.82,major,G# major,During and After Pandemic,0,1,0
+2020,167183,117.994,-17.54,minor,F minor,During and After Pandemic,0,0,1
+2020,209760,81.984,-5.986,major,G major,During and After Pandemic,0,1,0
+2020,194621,149.972,-6.13,minor,A minor,During and After Pandemic,0,0,1
+2020,223320,113.065,-4.897,major,C major,During and After Pandemic,0,1,0
+2020,181860,128.331,-7.092,minor,D minor,During and After Pandemic,0,0,1
+2020,176546,112.05,-7.567,minor,B minor,During and After Pandemic,0,0,1
+2020,216573,126.014,-5.01,major,F# major,During and After Pandemic,0,1,0
+2020,194866,118.974,-4.865,major,E major,During and After Pandemic,0,1,0
+2020,155168,126.998,-6.789,minor,G# minor,During and After Pandemic,0,0,1
+2020,238321,97.023,-9.141,minor,A# minor,During and After Pandemic,0,0,1
+2020,173288,84.005,-5.171,major,D major,During and After Pandemic,0,1,0
+2021,203064,102.977,-3.787,minor,F# minor,During and After Pandemic,0,0,1
+2021,215626,118.051,-5.487,major,C major,During and After Pandemic,0,1,0
+2022,215626,118.051,-5.487,major,C major,During and After Pandemic,0,1,0
+2021,140533,91.007,-3.671,minor,G minor,During and After Pandemic,0,0,1
+2021,178146,166.928,-5.044,major,A major,During and After Pandemic,0,1,0
+2022,178146,166.928,-5.044,major,A major,During and After Pandemic,0,1,0
+2021,208666,110.97,-3.463,major,G# major,During and After Pandemic,0,1,0
+2022,208666,110.97,-3.463,major,G# major,During and After Pandemic,0,1,0
+2021,242096,148.088,-7.964,major,F major,During and After Pandemic,0,1,0
+2021,242013,143.875,-8.81,major,A# major,During and After Pandemic,0,1,0
+2021,137704,178.781,-6.725,minor,G# minor,During and After Pandemic,0,0,1
+2021,198081,90.03,-6.181,major,C major,During and After Pandemic,0,1,0
+2021,164441,109.997,-5.187,major,G# major,During and After Pandemic,0,1,0
+2021,141805,169.928,-5.484,major,C# major,During and After Pandemic,0,1,0
+2022,141805,169.928,-5.484,major,C# major,During and After Pandemic,0,1,0
+2021,215506,180.917,-7.222,major,D major,During and After Pandemic,0,1,0
+2021,172324,144.015,-4.771,major,C major,During and After Pandemic,0,1,0
+2021,230746,126.011,-3.745,minor,B minor,During and After Pandemic,0,0,1
+2022,230746,126.011,-3.745,minor,B minor,During and After Pandemic,0,0,1
+2021,238805,80.87,-6.9,major,B major,During and After Pandemic,0,1,0
+2022,238805,80.87,-6.9,major,B major,During and After Pandemic,0,1,0
+2021,161384,93.005,-7.357,major,C major,During and After Pandemic,0,1,0
+2021,232533,151.964,-5.195,major,C major,During and After Pandemic,0,1,0
+2021,132780,149.996,-6.865,minor,E minor,During and After Pandemic,0,0,1
+2021,173710,109.978,-6.476,major,C major,During and After Pandemic,0,1,0
+2021,160000,83.995,-8.493,major,A# major,During and After Pandemic,0,1,0
+2021,139460,124.939,-5.134,minor,F minor,During and After Pandemic,0,0,1
+2021,212352,150.087,-7.395,minor,A# minor,During and After Pandemic,0,0,1
+2022,212352,150.087,-7.395,minor,A# minor,During and After Pandemic,0,0,1
+2021,173539,94.016,-7.781,major,D major,During and After Pandemic,0,1,0
+2021,156944,166,-6.044,major,B major,During and After Pandemic,0,1,0
+2021,161853,80.018,-6.487,major,C# major,During and After Pandemic,0,1,0
+2021,205090,109.928,-10.059,minor,E minor,During and After Pandemic,0,0,1
+2021,155883,94.018,-4.12,major,E major,During and After Pandemic,0,1,0
+2021,165925,81.039,-6.862,major,F# major,During and After Pandemic,0,1,0
+2021,198370,89.087,-8.964,major,C major,During and After Pandemic,0,1,0
+2021,205458,104.949,-7.636,minor,E minor,During and After Pandemic,0,0,1
+2021,227395,99.048,-5.483,major,A# major,During and After Pandemic,0,1,0
+2021,212093,87.017,-8.34,major,F# major,During and After Pandemic,0,1,0
+2021,135959,77.972,-6.295,minor,F# minor,During and After Pandemic,0,0,1
+2021,170226,124.027,-9.357,major,E major,During and After Pandemic,0,1,0
+2021,229226,100.607,-7.885,major,D# major,During and After Pandemic,0,1,0
+2021,184489,146.933,-8.256,minor,G# minor,During and After Pandemic,0,0,1
+2021,180930,82.103,-9.229,major,C major,During and After Pandemic,0,1,0
+2021,186173,128.986,-6.414,major,G# major,During and After Pandemic,0,1,0
+2022,186173,128.986,-6.414,major,G# major,During and After Pandemic,0,1,0
+2021,110497,159.954,-6.251,major,C# major,During and After Pandemic,0,1,0
+2021,210560,130.041,-6.509,major,C# major,During and After Pandemic,0,1,0
+2022,210560,130.041,-6.509,major,C# major,During and After Pandemic,0,1,0
+2021,192956,136.006,-6.349,major,C# major,During and After Pandemic,0,1,0
+2021,257604,136.008,-6.035,minor,B minor,During and After Pandemic,0,0,1
+2021,160191,83.97,-9.016,minor,B minor,During and After Pandemic,0,0,1
+2021,123262,140.201,-7.6,minor,D# minor,During and After Pandemic,0,0,1
+2021,195428,140.042,-6.142,minor,C# minor,During and After Pandemic,0,0,1
+2021,279204,121.002,-8.37,minor,C# minor,During and After Pandemic,0,0,1
+2021,240413,89.124,-8.445,major,A# major,During and After Pandemic,0,1,0
+2021,171067,94.066,-6.1,minor,G# minor,During and After Pandemic,0,0,1
+2021,214706,81.112,-9.195,major,G major,During and After Pandemic,0,1,0
+2021,170858,139.917,-6.233,minor,C# minor,During and After Pandemic,0,0,1
+2021,219573,138.002,-11.501,major,C major,During and After Pandemic,0,1,0
+2021,226220,86.782,-4.859,minor,F minor,During and After Pandemic,0,0,1
+2021,236524,150.062,-4.053,major,D major,During and After Pandemic,0,1,0
+2021,248040,104.027,-6.002,major,C major,During and After Pandemic,0,1,0
+2022,248040,104.027,-6.002,major,C major,During and After Pandemic,0,1,0
+2021,207666,131.933,-6.358,major,E major,During and After Pandemic,0,1,0
+2021,215140,89.957,-5.023,major,D major,During and After Pandemic,0,1,0
+2021,154983,119.976,-4.77,major,G major,During and After Pandemic,0,1,0
+2021,144760,103.96,-8.035,major,B major,During and After Pandemic,0,1,0
+2021,149189,79.461,-7.102,minor,B minor,During and After Pandemic,0,0,1
+2021,211560,134.002,-4.808,minor,B minor,During and After Pandemic,0,0,1
+2021,226986,90.035,-8.433,major,B major,During and After Pandemic,0,1,0
+2021,178153,129.895,-6.959,minor,C minor,During and After Pandemic,0,0,1
+2021,166506,102.008,-2.922,major,F# major,During and After Pandemic,0,1,0
+2021,195962,119.987,-7.097,minor,E minor,During and After Pandemic,0,0,1
+2021,184634,130.012,-4.242,major,A major,During and After Pandemic,0,1,0
+2021,174682,98.54,-11.254,minor,C# minor,During and After Pandemic,0,0,1
+2021,162398,129.857,-4.057,minor,C# minor,During and After Pandemic,0,0,1
+2021,190779,115.885,-8.285,major,D major,During and After Pandemic,0,1,0
+2021,199706,131.459,-5.7,minor,G minor,During and After Pandemic,0,0,1
+2021,136899,136.994,-7.686,major,C# major,During and After Pandemic,0,1,0
+2021,137983,130.058,-7.882,major,B major,During and After Pandemic,0,1,0
+2021,192880,157,-10.073,major,B major,During and After Pandemic,0,1,0
+2021,171333,174.079,-6.151,major,F major,During and After Pandemic,0,1,0
+2021,203893,82.959,-6.504,major,E major,During and After Pandemic,0,1,0
+2021,185146,72.017,-11.639,minor,A minor,During and After Pandemic,0,0,1
+2021,206710,179.951,-4.601,major,C# major,During and After Pandemic,0,1,0
+2021,214720,138.084,-7.189,major,F major,During and After Pandemic,0,1,0
+2021,212030,184.075,-4.802,major,C# major,During and After Pandemic,0,1,0
+2021,242965,145.887,-9.579,minor,F minor,During and After Pandemic,0,0,1
+2022,242965,145.887,-9.579,minor,F minor,During and After Pandemic,0,0,1
+2021,201882,131.798,-5.664,minor,C minor,During and After Pandemic,0,0,1
+2021,193880,90.048,-2.84,major,A major,During and After Pandemic,0,1,0
+2021,220196,121.004,-6.01,major,G# major,During and After Pandemic,0,1,0
+2021,165506,134.01,-5.932,major,F# major,During and After Pandemic,0,1,0
+2021,175026,98.997,-6.758,major,F major,During and After Pandemic,0,1,0
+2021,126266,67.196,-8.749,major,G# major,During and After Pandemic,0,1,0
+2022,126266,67.196,-8.749,major,G# major,During and After Pandemic,0,1,0
+2023,126266,67.196,-8.749,major,G# major,During and After Pandemic,0,1,0
+2021,210463,91.066,-10.778,minor,F# minor,During and After Pandemic,0,0,1
+2021,298899,81.055,-8.697,major,C major,During and After Pandemic,0,1,0
+2021,187683,81.949,-5.07,major,G major,During and After Pandemic,0,1,0
+2021,203373,139.931,-5.623,major,D# major,During and After Pandemic,0,1,0
+2021,218228,132.031,-7.583,minor,E minor,During and After Pandemic,0,0,1
+2021,160078,84.448,-5.212,major,G# major,During and After Pandemic,0,1,0
+2021,160839,100.032,-4.691,major,D major,During and After Pandemic,0,1,0
+2021,199604,127.962,-3.613,minor,D# minor,During and After Pandemic,0,0,1
+2022,167303,173.93,-5.338,minor,F# minor,During and After Pandemic,0,0,1
+2023,167303,173.93,-5.338,minor,F# minor,During and After Pandemic,0,0,1
+2022,224694,141.981,-7.519,major,F major,During and After Pandemic,0,1,0
+2022,207853,141.02,-2.724,major,D major,During and After Pandemic,0,1,0
+2022,173947,107.005,-5.902,minor,F minor,During and After Pandemic,0,0,1
+2022,172540,106.022,-4.431,minor,B minor,During and After Pandemic,0,0,1
+2022,153190,153.96,-5.569,major,D major,During and After Pandemic,0,1,0
+2022,200547,72.993,-6.634,major,D major,During and After Pandemic,0,1,0
+2022,202735,116.041,-6.348,major,C# major,During and After Pandemic,0,1,0
+2022,189893,83.389,-4.474,major,C# major,During and After Pandemic,0,1,0
+2023,189893,83.389,-4.474,major,C# major,During and After Pandemic,0,1,0
+2022,191937,108.965,-6.305,minor,A# minor,During and After Pandemic,0,0,1
+2022,143901,87.981,-4.51,minor,C# minor,During and After Pandemic,0,0,1
+2022,173381,76.984,-4.437,major,D major,During and After Pandemic,0,1,0
+2022,168551,121.947,-5.688,major,E major,During and After Pandemic,0,1,0
+2022,178520,196,-5.24,minor,B minor,During and After Pandemic,0,0,1
+2022,178567,92.005,-5.105,minor,C# minor,During and After Pandemic,0,0,1
+2022,172626,107.998,-4.175,minor,F minor,During and After Pandemic,0,0,1
+2022,243716,106.672,-5.198,minor,F minor,During and After Pandemic,0,0,1
+2022,300840,108.296,-11.903,minor,A# minor,During and After Pandemic,0,0,1
+2022,216120,205.863,-8.516,minor,C minor,During and After Pandemic,0,0,1
+2022,177954,114.996,-4.595,major,A# major,During and After Pandemic,0,1,0
+2022,192840,100.964,-6.009,major,F major,During and After Pandemic,0,1,0
+2023,192840,100.964,-6.009,major,F major,During and After Pandemic,0,1,0
+2022,157477,119.706,-4.913,major,A major,During and After Pandemic,0,1,0
+2022,232066,168.946,-7.093,major,C# major,During and After Pandemic,0,1,0
+2023,232066,168.946,-7.093,major,C# major,During and After Pandemic,0,1,0
+2022,163025,131.443,-5.11,major,A# major,During and After Pandemic,0,1,0
+2022,192721,97.023,-5.411,major,C# major,During and After Pandemic,0,1,0
+2022,169237,84.974,-6.892,minor,G# minor,During and After Pandemic,0,0,1
+2022,218364,165.921,-4.711,major,C major,During and After Pandemic,0,1,0
+2022,224213,160.087,-4.865,major,C# major,During and After Pandemic,0,1,0
+2022,161853,79.994,-6.459,major,C# major,During and After Pandemic,0,1,0
+2022,224426,102.025,-4.13,major,C# major,During and After Pandemic,0,1,0
+2022,148485,139.994,-5.927,major,C major,During and After Pandemic,0,1,0
+2022,278281,114.942,-5.039,minor,C# minor,During and After Pandemic,0,0,1
+2022,228013,175.212,-12.151,minor,E minor,During and After Pandemic,0,0,1
+2023,228013,175.212,-12.151,minor,E minor,During and After Pandemic,0,0,1
+2022,197442,82.03,-8.529,major,D major,During and After Pandemic,0,1,0
+2022,203807,103.014,-2.278,minor,F# minor,During and After Pandemic,0,0,1
+2022,200470,113.42,-6.102,minor,E minor,During and After Pandemic,0,0,1
+2022,245939,99.968,-5.453,minor,F minor,During and After Pandemic,0,0,1
+2022,206106,134.944,-3.449,major,G# major,During and After Pandemic,0,1,0
+2022,183026,159.979,-7.616,minor,G# minor,During and After Pandemic,0,0,1
+2022,136266,77.502,-4.572,minor,C# minor,During and After Pandemic,0,0,1
+2022,167480,177.945,-6.725,major,E major,During and After Pandemic,0,1,0
+2022,174000,106.703,-9.805,minor,G minor,During and After Pandemic,0,0,1
+2022,153000,179.773,-6.543,minor,G minor,During and After Pandemic,0,0,1
+2022,233456,169.914,-9.258,major,G# major,During and After Pandemic,0,1,0
+2022,202226,180.088,-8.286,major,D major,During and After Pandemic,0,1,0
+2022,232058,135.962,-6.055,major,A major,During and After Pandemic,0,1,0
+2022,145800,93.005,-3.805,major,G# major,During and After Pandemic,0,1,0
+2022,170977,133.014,-2.565,major,D major,During and After Pandemic,0,1,0
+2022,204316,137.419,-4.991,minor,G# minor,During and After Pandemic,0,0,1
+2022,202133,69.877,-6.628,major,D# major,During and After Pandemic,0,1,0
+2022,226093,94.048,-3.554,minor,E minor,During and After Pandemic,0,0,1
+2022,189560,104.03,-5.858,major,E major,During and After Pandemic,0,1,0
+2022,201334,123.972,-7.187,major,G major,During and After Pandemic,0,1,0
+2022,210200,111.005,-8.006,major,C# major,During and After Pandemic,0,1,0
+2022,206070,94.996,-6.377,major,G# major,During and After Pandemic,0,1,0
+2022,189780,106.006,-5.788,major,F major,During and After Pandemic,0,1,0
+2022,138293,91.942,-6.029,minor,G# minor,During and After Pandemic,0,0,1
+2022,213061,98.047,-8.797,minor,G minor,During and After Pandemic,0,0,1
+2022,207540,121.991,-7.3,major,C# major,During and After Pandemic,0,1,0
+2022,254173,115.01,-5.878,major,C# major,During and After Pandemic,0,1,0
+2022,225148,88.098,-3.906,major,C# major,During and After Pandemic,0,1,0
+2022,160656,110.054,-5.077,minor,C minor,During and After Pandemic,0,0,1
+2022,162680,94.995,-7.93,major,D major,During and After Pandemic,0,1,0
+2022,175344,109.414,-7.23,major,F major,During and After Pandemic,0,1,0
+2022,613026,93.023,-8.771,major,C major,During and After Pandemic,0,1,0
+2022,227628,97.013,-5.389,major,A major,During and After Pandemic,0,1,0
+2022,230400,78.293,-3.221,major,F major,During and After Pandemic,0,1,0
+2022,213493,183.89,-8.425,major,A major,During and After Pandemic,0,1,0
+2022,185600,74.967,-3.599,major,A# major,During and After Pandemic,0,1,0
+2022,157906,163.957,-4.143,major,G major,During and After Pandemic,0,1,0
+2022,181393,140.037,-9.086,minor,F# minor,During and After Pandemic,0,0,1
+2022,172933,124.992,-5.748,major,G# major,During and After Pandemic,0,1,0
+2022,234800,124.986,-6.73,major,G# major,During and After Pandemic,0,1,0
+2022,130973,119.705,-8.463,major,D major,During and After Pandemic,0,1,0
+2023,130973,119.705,-8.463,major,D major,During and After Pandemic,0,1,0
+2022,258298,79.928,-5.745,minor,D# minor,During and After Pandemic,0,0,1
+2022,189306,155.928,-5.424,major,F major,During and After Pandemic,0,1,0
+2022,135533,140.467,-13.056,major,C major,During and After Pandemic,0,1,0
+2023,135533,140.467,-13.056,major,C major,During and After Pandemic,0,1,0
+2022,163311,126.877,-11.689,major,E major,During and After Pandemic,0,1,0
+2022,176146,140.073,-4.028,minor,C minor,During and After Pandemic,0,0,1
+2022,230226,144.022,-6.15,major,E major,During and After Pandemic,0,1,0
+2022,207120,160.118,-5.323,minor,D minor,During and After Pandemic,0,0,1
+2022,182161,102.987,-2.842,major,F# major,During and After Pandemic,0,1,0
+2022,214405,128.153,-5.908,major,G major,During and After Pandemic,0,1,0
+2022,152137,144.047,-11.814,major,D major,During and After Pandemic,0,1,0
+2022,156943,131.121,-7.375,major,D major,During and After Pandemic,0,1,0
+2022,214293,99.991,-5.807,major,C major,During and After Pandemic,0,1,0
+2022,195760,149.9,-4.986,major,E major,During and After Pandemic,0,1,0
+2023,163854,203.759,-5.456,major,F# major,During and After Pandemic,0,1,0
+2023,200600,118.048,-4.775,major,C major,During and After Pandemic,0,1,0
+2023,153946,88.993,-5.75,major,G# major,During and After Pandemic,0,1,0
+2023,200690,97.008,-6.571,major,E major,During and After Pandemic,0,1,0
+2023,221520,97.95,-6.005,minor,C# minor,During and After Pandemic,0,0,1
+2023,239317,107.008,-5.196,major,B major,During and After Pandemic,0,1,0
+2023,232857,67.033,-7.594,minor,C# minor,During and After Pandemic,0,0,1
+2023,265493,97.994,-5.52,major,G# major,During and After Pandemic,0,1,0
+2023,201800,143.008,-7.231,major,F major,During and After Pandemic,0,1,0
+2023,175238,128.04,-3.673,minor,G minor,During and After Pandemic,0,0,1
+2023,156943,131.199,-7.399,major,D major,During and After Pandemic,0,1,0
+2023,157477,119.724,-5.007,major,A major,During and After Pandemic,0,1,0
+2023,239359,153.15,-9.342,minor,B minor,During and After Pandemic,0,0,1
+2023,207540,121.991,-7.3,major,C# major,During and After Pandemic,0,1,0
+2023,184613,116.992,-5.529,minor,A minor,During and After Pandemic,0,0,1
+2023,178426,169.994,-5.707,major,A major,During and After Pandemic,0,1,0
+2023,177387,139.971,-5.775,minor,D# minor,During and After Pandemic,0,0,1
+2023,131013,132.962,-8.254,major,F major,During and After Pandemic,0,1,0
+2023,204000,116.033,-9.281,major,D major,During and After Pandemic,0,1,0
+2023,215571,140.05,-6.16,major,F# major,During and After Pandemic,0,1,0
+2023,174560,99.945,-8.735,major,D# major,During and After Pandemic,0,1,0
+2023,195373,81.001,-8.127,minor,B minor,During and After Pandemic,0,0,1
+2023,223878,142.974,-5.881,major,D# major,During and After Pandemic,0,1,0
+2023,165671,147.989,-5.176,minor,F minor,During and After Pandemic,0,0,1
+2023,201493,89.977,-6.523,major,G# major,During and After Pandemic,0,1,0
+2023,123890,150.185,-7.924,major,B major,During and After Pandemic,0,1,0
+2023,225388,115.042,-5.668,major,G major,During and After Pandemic,0,1,0
+2023,219724,138.005,-5.745,major,F major,During and After Pandemic,0,1,0
+2023,125040,130.001,-6.747,minor,C# minor,During and After Pandemic,0,0,1
+2023,202395,96.985,-10.489,major,A# major,During and After Pandemic,0,1,0
+2023,138760,104.986,-5.809,minor,B minor,During and After Pandemic,0,0,1
+2023,197400,157.978,-4.246,major,F# major,During and After Pandemic,0,1,0
+2023,176579,110.056,-4.93,minor,B minor,During and After Pandemic,0,0,1
+2023,229626,139.807,-7.419,major,E major,During and After Pandemic,0,1,0
+2023,206864,141.978,-5.153,major,G major,During and After Pandemic,0,1,0
+2023,182666,116.622,-5.3,minor,F minor,During and After Pandemic,0,0,1
+2023,234352,169.922,-5.678,minor,D minor,During and After Pandemic,0,0,1
+2023,209259,94.467,-4.801,major,E major,During and After Pandemic,0,1,0
+2023,178723,140.924,-6.519,major,C# major,During and After Pandemic,0,1,0
+2023,214588,129.963,-6.386,major,G major,During and After Pandemic,0,1,0
+2023,174253,120.018,-8.332,minor,B minor,During and After Pandemic,0,0,1
+2023,272112,142.024,-8.482,minor,A# minor,During and After Pandemic,0,0,1
+2023,109750,144.025,-8.398,major,C major,During and After Pandemic,0,1,0
+2023,175226,78.534,-8.253,major,F major,During and After Pandemic,0,1,0
+2023,272373,96.107,-5.355,major,D major,During and After Pandemic,0,1,0
+2023,194563,83.827,-4.089,major,A major,During and After Pandemic,0,1,0
+2023,177720,101.227,-5.988,major,A# major,During and After Pandemic,0,1,0
+2023,181840,120.009,-7.72,minor,D# minor,During and After Pandemic,0,0,1
+2023,230480,99.974,-7.683,minor,D minor,During and After Pandemic,0,0,1
+2023,134256,144.981,-3.562,major,A# major,During and After Pandemic,0,1,0
+2023,277659,140,-6.98,major,F# major,During and After Pandemic,0,1,0
+2023,187047,103.983,-3.802,major,G# major,During and After Pandemic,0,1,0
+2023,183410,169.934,-4.713,major,D major,During and After Pandemic,0,1,0
+2023,199040,139.974,-5.416,major,A major,During and After Pandemic,0,1,0
+2023,177266,159.931,-6.034,major,F# major,During and After Pandemic,0,1,0
+2023,179640,114.974,-4.614,major,G major,During and After Pandemic,0,1,0
+2023,212953,130.09,-9.475,minor,D minor,During and After Pandemic,0,0,1
+2023,196520,177.115,-6.083,major,A major,During and After Pandemic,0,1,0
+2023,194848,107.014,-7.457,minor,B minor,During and After Pandemic,0,0,1
+2023,197933,179.974,-3.547,minor,E minor,During and After Pandemic,0,0,1
+2023,181600,145.989,-3.771,minor,C minor,During and After Pandemic,0,0,1
+2023,223119,156.031,-6.637,major,A major,During and After Pandemic,0,1,0
+2023,172125,147.964,-5.092,major,A major,During and After Pandemic,0,1,0
+2023,209811,160.039,-3.945,major,C major,During and After Pandemic,0,1,0
+2023,231704,143.992,-4.02,minor,A minor,During and After Pandemic,0,0,1
+2023,271861,157.643,-4.629,major,G major,During and After Pandemic,0,1,0
+2023,227195,77.639,-7.746,major,C major,During and After Pandemic,0,1,0
+2023,189824,171.925,-5.851,minor,C# minor,During and After Pandemic,0,0,1
+2023,180853,99.796,-8.285,major,G major,During and After Pandemic,0,1,0
+2023,187244,121.722,-12.384,major,A# major,During and After Pandemic,0,1,0
+2023,170977,133.01,-2.63,major,D major,During and After Pandemic,0,1,0
+2023,213817,112.046,-7.147,major,G# major,During and After Pandemic,0,1,0
+2023,222369,117.337,-17.829,major,C major,During and After Pandemic,0,1,0
+2023,183550,124.987,-4.185,major,B major,During and After Pandemic,0,1,0
+2023,262960,107.682,-12.472,major,D major,During and After Pandemic,0,1,0
+2023,219967,105.025,-3.925,major,F# major,During and After Pandemic,0,1,0
+2023,239845,92.491,-7.19,major,C major,During and After Pandemic,0,1,0
+2023,172480,118.968,-5.136,major,F# major,During and After Pandemic,0,1,0
+2023,139325,154.569,-10.867,major,C# major,During and After Pandemic,0,1,0
+2023,242306,160.069,-5.824,minor,D minor,During and After Pandemic,0,0,1
+2023,184066,138.078,-6.34,minor,G minor,During and After Pandemic,0,0,1
+2023,186800,124.882,-6.483,major,D major,During and After Pandemic,0,1,0
+2023,158003,121.086,-5.781,minor,F# minor,During and After Pandemic,0,0,1
+2023,201066,148.009,-5.927,major,C major,During and After Pandemic,0,1,0
+2023,203813,146.014,-7.884,minor,E minor,During and After Pandemic,0,0,1
+2023,181766,143.977,-3.757,major,D major,During and After Pandemic,0,1,0
+2023,214945,122.104,-5.6,minor,D minor,During and After Pandemic,0,0,1
+2023,246133,111.975,-5.275,minor,G minor,During and After Pandemic,0,0,1
+2023,185748,111.363,-7.323,major,C# major,During and After Pandemic,0,1,0
+2023,244760,99.977,-6.437,minor,A minor,During and After Pandemic,0,0,1
+2023,208853,139.921,-6.709,major,C# major,During and After Pandemic,0,1,0
